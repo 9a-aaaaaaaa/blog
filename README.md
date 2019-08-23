@@ -1,5 +1,5 @@
 # qiuyanlong的个人学习博客
-简单记录日常学习。[错误反馈](/blog/issues/1)
+简单记录日常学习。[错误反馈](https://github.com/qiuyanlong/blog/issues/1)
 
 ## Node
 - [nodejs原生基础](./node/README.md)
