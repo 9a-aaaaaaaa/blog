@@ -152,7 +152,7 @@ git remote remove origin  // 删除本地指定的远程地址
 ```
 
 ## 常见错误
-1:! [rejected] master -> master (non-fast-forward)  git push -f
+1:`![rejected] master -> master (non-fast-forward)  git push -f`
 
 
 2: 美化输出`git lg`：`git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"`
