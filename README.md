@@ -6,3 +6,4 @@
 - [nodejs原生基础](./node/README.md)
 - [javascript基础知识点汇聚](./javascript/README.md)  
 - [js框架-react相关](./react/README.md)  
+- [nginx相关](./nginx)  
