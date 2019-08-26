@@ -15,7 +15,7 @@ http.createServer((req,res)=>{ console.log(req.method);
        var auth = new Buffer(parts[1], 'base64').toString().split(':');
        var user = auth[0];
        var pass = auth[1];
-       console.log(user,pass);
+      
        if(user === 'qiuyanlong'){ 
          let gets = '';
          req.on('data',(chunck)=>{

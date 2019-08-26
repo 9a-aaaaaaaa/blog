@@ -165,6 +165,21 @@ https 配置代码[参考](./https_simple.conf) 证书可以申请阿里云免�
 - cors 代码[实现](./cors.conf)  
 
 
+# 防盗链
+```
+
+        location ~* ^.+\.(jpg|gif|png|swf|flv|wma|wmv|asf|mp3|mmf|zip|rar)$ {
+            valid_referers none blocked *.baidu.com;
+            #valid_referers   http://facebeet.com/;
+            if ($invalid_referer) {
+            #return 302  http://www.benet.com/img/nolink.jpg;
+            return 404;
+            break;
+            }
+            access_log off;
+        }
+```
+
 # 其他
 
 1： 如果遇到报错：

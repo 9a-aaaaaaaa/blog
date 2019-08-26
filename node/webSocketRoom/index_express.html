@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+        #messages li:nth-child(odd) { background: #eee; }
+        .broadcast{
+            color:red;
+        }
+        .welcome{
+            color:green;
+        }
+        .changname{
+            color:aqua;
+        }
+        .list{
+            position: fixed;
+            right:20px;
+            top:20px;
+            z-index: 22;
+            border-bottom: 1px solid red;
+            line-height: 30px;
+            font-size: 16px;
+
+        }
+    </style>
+    <script src="js/socket.io.js"></script>
+</head>
+<body>
+<ul id="messages"></ul>
+<div class="list">
+
+</div>
+<form action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+
+$(function () {
+
+    var socket = io();
+    $('form').submit(function(e){
+      e.preventDefault(); // prevents page reloading
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+
+  socket.on('chat message',function(msg){
+      $('#messages').append($('<li>').text(msg));
+  });
+
+  socket.on('broadcast',function(msg){
+    if(!$('.broadcast').text()){
+        $('#messages').append($('<li class="broadcast">').text('【系统消息】：' +msg));
+    }
+
+  });
+
+
+  socketEmit('welcome','welcome','好友消息');
+  socketEmit('changname','changname','修改用户名为',function(msg){
+     $('.list').html(`<p>${msg}</p>`)
+  });
+
+
+  function socketEmit(event,className,noticeInfo,fn){
+  socket.on(event,function(msg){
+    if(!$(`.${className}`).text()){
+      $('#messages').append($('<li class='+className+'>').text('【'+noticeInfo+'】：' +msg));
+      fn && fn(msg);
+    }
+
+    setTimeout(function(){
+      $(`.${className}`).remove();
+    },5000)
+
+  });
+
+}
+
+
+
+});
+</script>
+</body>
+</html>

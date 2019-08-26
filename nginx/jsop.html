@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h1>hello</h1>
+<img src="./buf_logo.png" alt="">
+<script>
+ var ascript = document.createElement('script');
+     ascript.src = 'http://127.0.0.1:3006/getscript?callback=showInfo';
+     document.getElementsByTagName('head')[0].appendChild(ascript);
+ 
+ 
+      function showInfo(s){
+        console.log(s)
+      }
+
+</script>
+
+
+</body>
+</html>
