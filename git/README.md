@@ -1,6 +1,6 @@
 ## git 相关知识
 
-![分布式代码管理](./0.jpg "分布式代码管理")
+![分布式代码管理](./git.jpg "分布式代码管理")
 
 ### 一. 查看基本配置信息
 
@@ -10,6 +10,77 @@
  git config --global user.email johndoe@example.com
 
 ```
+
+# ssh 相关
+```
+    cat ~/.ssh/id_rsa.pub  // 查看是否存在
+    pbcopy < ~/.ssh/id_rsa.pub  // 复制
+    ssh-keygen -t rsa -C "your.email@example.com" -b 4096  // 不存在就生成新的
+    ssh-add ~/.ssh/id_rsa  // 告诉缓存
+```
+
+
+#  HEAD 是什么
+![HEAD是什么](./HEAD1.png "HEAD是什么")
+> HEAD是一个指向你正在工作中的本地分支的*指针*，可以将 HEAD 想象为当前分支的别名。本质上仅仅是个指向 commit 对象的可变指针。
+
+```shell
+git log --oneline 
+6d729cc (HEAD -> master, dev) c3
+359e796 c2
+3a10d19 c1
+```
+由上图可以看到`HEAD`指向`master`分支，`master`分支指向`sha-1`值为`93dd8e`（缩写）的`commit`提交。
+![HEAD是什么](./head2.jpg "HEAD是什么")
+
+`.git`目录中有一个为`HEAD`的文件，它记录着`HEAD`的内容，查看其中内容代码如下：
+
+```shell
+cat git ./.git/HEAD
+>>ref: refs/heads/master
+cat ./.git/refs/heads/master
+>>6d729cc37c5fb2884524e45ec7df13fe005292ae
+```
+如果切换分支以后，就可以看到`HEAD`指向了新的分支上面。
+
+> `Git 1.8.5`版本之后，`HEAD`有一个缩写形式`@`，`git reset @^`。
+
+
+## git commit --amend
+- 1.修改最后一次`commit`提交信息：最后一次提交有失误，应该是"c3"而不是"c"，修改如下：
+```
+git log --oneline
+6d729cc (HEAD -> master, dev) c
+359e796 c2
+3a10d19 c1
+git commit --amend -m'c3'
+```
+通过上述代码，可以将最后一次提交的描述信息修改为"c3"。
+
+- 2: 修改最后一次提交，保持最后一个`commit`的信息。
+```
+git add test.text
+git commit --amend --no-edit 
+git commit --amend -m 'xxx' // 如果需要修改commit信息，采用该命令可以修改
+```
+这样就可以在最后一次提交中追加一个新的文件。--no-edit表示最后一次提交信息"c3"没必要修改，保持原样即可。
+
+一般在使用该命令如果修改的上次相同的文件（也就是意味着`git pull`会产生合并信息），需要保持直线应该会配套`git rebase`，如果没有则直接`git push`。
+
+## git diff 
+- `git diff` // 开发和暂存的对比
+- `git diff --stat`  // 统计哪些文件发生了改变
+- `git diff --numstat` // 增加或者删除的行数数量非常的大,可以通过该命令查看
+- `git diff HEAD`  // 显示工作版本(Working tree)和HEAD的差别
+- `git diff abranch` // 查看当前分支和某分支的对比
+ 
+# git rebase 
+[彻底搞懂rebase](http://jartto.wang/2018/12/11/git-rebase/#) 
+[rebase使用的注意事项](https://www.jianshu.com/p/4079284dd970)
+
+## git grep
+- `git grep test` // 检索当前分支内容中含有`test`的文件  `-n`是哪一行  `-c`统计出现了几次
+- `git grep --name-only 222`  // 只显示文件名 
 
 ### 二. 版本库(repository)初始化
    
@@ -22,6 +93,8 @@
      git add a.txt
      git add b.txt c.txt
      git commit -m "add 3 files."
+
+     git push --set-upstream origin dev  // 推送本地dev分支到远程
    ```
 > linux中`>`删除原来的文件重新写入，每次会生成一个新的文件内容（文件的日期也会自动更新）
 > <br/>`>>`表示追加内容（会另起一行，文件的日期也会自动更新）。
@@ -75,8 +148,11 @@ HEAD^^ 上上一个版本 。。。
  git reflog  // 查看历史提交命令，拿到版本号，方便返回到版本回退之前的版本中。
 
  git reset --hard 1094a
-
  git show --stat 查看某提提交的具体信息
+ git checkout .  //放弃当前目录下的修改
+ git checkout -- c.txt  // 放弃c.txt的文件的更改
+ git checkout a.txt b.txt // 放弃这两个文件的更改
+ git checkout <filename>  //放弃单个文件的修改
 
 ```
 >3.2 注意三种模式
@@ -121,7 +197,11 @@ git commit -m'删除hi.txt文件'
 
 ```
 Git鼓励大量使用分支：
-查看远程分支：git branch -a
+git branch -a // git branch -a //查看本地和远程的所有分支
+git branch -r / /查看远程所有分支
+git branch -vv // 查看本地分支远程的映射
+git branch -d -r <branchname>    //删除远程分支，删除后还需推送到服务器
+git branch -m <oldbranch> <newbranch>   //重命名本地分支
 查看分支：git branch
 创建分支：git branch <name>
 切换分支：git checkout <name>
@@ -171,4 +251,3 @@ git config --global alias.co checkout    // git co
 git config --global alias.ci commit        // git ci
 git config --global alias.br branch       // git br
 ```
-5: `git commit --amend -C HEAD ` 覆盖之前的提交代码。   
