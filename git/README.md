@@ -76,8 +76,12 @@ git commit --amend -m 'xxx' // 如果需要修改commit信息，采用该命令�
 - `git diff abranch` // 查看当前分支和某分支的对比
  
 # git rebase 
+
 [彻底搞懂rebase](http://jartto.wang/2018/12/11/git-rebase/#) 
+
 [rebase使用的注意事项](https://www.jianshu.com/p/4079284dd970)
+
+[git rebase很有可能会碰到的错误问题](https://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp&gws_rd=ssl)
 
 # git fetch 
 - 1.`Git fetch`:只是从远程获取最新版本到本地,不会merge(合并)
