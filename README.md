@@ -1,5 +1,4 @@
-# qiuyanlong的个人学习记录
-简单记录日常学习。[错误反馈](https://github.com/qiuyanlong/blog/issues/1)。
+# 
 
 ## Node
 - [git操作相关](./git/README.md)
