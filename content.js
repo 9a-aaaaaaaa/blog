@@ -15,7 +15,12 @@ config.dir.forEach(i=>{
 
 
 function generateMenu(md,file){
-    // JSON.stringify(file, null, 1)
+    // JSON.stringify(file, null, 1）
+    try {
+        fs.rmSync(md);
+    } catch (error) {
+        console.log("删除失败",error);
+    }
     file.forEach((i)=> fs.appendFileSync(md,i+"\n",'utf-8'));
 }
 
@@ -31,7 +36,7 @@ function selectMdFile(title,arr) {
             md = active;
             continue;
         }
-        const li = `- [${[active]}](./${active})`;
+        const li = `- [${[active]}](./${encodeURIComponent(active)}/index.md)`;
         file.push(li);
     }
 
