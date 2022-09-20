@@ -31,7 +31,7 @@ function selectMdFile(title,arr) {
             md = active;
             continue;
         }
-        const li = `- ${[active]}(./${active})`;
+        const li = `- [${[active]}](./${active})`;
         file.push(li);
     }
 
