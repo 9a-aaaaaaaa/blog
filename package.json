@@ -4,7 +4,8 @@
   "description": "- [monodb 快速学习汇总](./db/monodb%20%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/index.md) - [mysql 学习笔记](./db/mysql%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.md) - [redis 相关](./db/redis%20%E7%9B%B8%E5%85%B3/index.md)",
   "main": "content.js",
   "scripts": {
-    "pub": "node content.js && git add . && git ci -m'update' ",
+    "git": "node content.js && git add . && git commit -m",
+    "postgit": "git push --all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
