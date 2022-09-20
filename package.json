@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "- [monodb 快速学习汇总](./db/monodb%20%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/index.md) - [mysql 学习笔记](./db/mysql%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.md) - [redis 相关](./db/redis%20%E7%9B%B8%E5%85%B3/index.md)",
+  "main": "content.js",
+  "scripts": {
+    "pub": "node content.js && git add . && git ci -m'update' ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9a-aaaaaaaa/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/9a-aaaaaaaa/blog/issues"
+  },
+  "homepage": "https://github.com/9a-aaaaaaaa/blog#readme"
+}

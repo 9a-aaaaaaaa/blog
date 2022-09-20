@@ -1,4 +1,5 @@
-## title 
+
+## rust 
 
 - [rust[10]-常见的集合](./rust%5B10%5D-%E5%B8%B8%E8%A7%81%E7%9A%84%E9%9B%86%E5%90%88/index.md)
 - [rust[11] - 错误处理](./rust%5B11%5D%20-%20%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.md)
@@ -15,3 +16,4 @@
 - [rust[7]-控制台grep搜索练习项目](./rust%5B7%5D-%E6%8E%A7%E5%88%B6%E5%8F%B0grep%E6%90%9C%E7%B4%A2%E7%BB%83%E4%B9%A0%E9%A1%B9%E7%9B%AE/index.md)
 - [rust[8]-闭包和迭代器](./rust%5B8%5D-%E9%97%AD%E5%8C%85%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8/index.md)
 - [rust[9]-Cargo 和 Crates_io项目发布](./rust%5B9%5D-Cargo%20%E5%92%8C%20Crates_io%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83/index.md)
+- [记录下 mac环境下wasm 配置](./%E8%AE%B0%E5%BD%95%E4%B8%8B%20mac%E7%8E%AF%E5%A2%83%E4%B8%8Bwasm%20%E9%85%8D%E7%BD%AE/index.md)
