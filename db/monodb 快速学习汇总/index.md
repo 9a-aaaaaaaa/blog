@@ -59,8 +59,7 @@
 * 7. [7. 聚合操作](#7.-聚合操作)
     * 7.1. [1: 单一作用集合](#1:-单一作用集合)
     * 7.2. [2：聚合管道](#2：聚合管道)
-* 8. [索引使用](#索引使用)
-* 9. [References](#references)
+* 8. [References](#references)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -792,10 +791,11 @@ db.orders.find( {user_id: user_id} )
 
 MongoDB 使用的是 B Tree, MySQL 使用的是 B+ Tree
 
-
+![官网索引介绍](2022-09-20-21-26-54.png)
+![索引介绍](2022-09-20-21-27-52.png)
 
 ```javascript
-// create index
+// create index 创建多个索引
 db.<collection_name>.createIndex({ userid : 1, username : -1 })
 
 // retrieve indexes
@@ -1260,11 +1260,8 @@ load("book.js"); // true 表示成功了
 show table; // 就可以查询这个了
 ```
 
-#  8. <a name='索引使用'></a>索引使用
 
-![索引使用](2022-09-20-21-15-15.png)
-
-##  9. <a name='references'></a>References
+##  8. <a name='references'></a>References
 
 - https://mongoosejs.com/docs/guides.html
 - https://docs.mongodb.com/
