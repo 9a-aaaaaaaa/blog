@@ -41,14 +41,9 @@
 - [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
 - [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
 
-## linux 
-
-- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
-- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
-- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
-
 ## node 
 
+- [JSON_Web_Token](./node/JSON_Web_Token/index.md)
 - [[2] node模块事件 event  -_ EventEmitter](./node/%5B2%5D%20node%E6%A8%A1%E5%9D%97%E4%BA%8B%E4%BB%B6%20event%20%20-_%20EventEmitter/index.md)
 - [[3] nodejs 进程和线程](./node/%5B3%5D%20nodejs%20%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/index.md)
 - [[3]node 之process 进程信息](./node/%5B3%5Dnode%20%E4%B9%8Bprocess%20%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF/index.md)
@@ -62,10 +57,15 @@
 - [node 模块 require & modules & exports](./node/node%20%E6%A8%A1%E5%9D%97%20require%20%26%20modules%20%26%20exports/index.md)
 - [npm & pnpm & 琐碎知识点](./node/npm%20%26%20pnpm%20%26%20%E7%90%90%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/index.md)
 - [pm2](./node/pm2/index.md)
-- [restful](./node/restful/index.md)
-- [rustful接口设计规范和JWT认证](./node/rustful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83%E5%92%8CJWT%E8%AE%A4%E8%AF%81/index.md)
+- [rustful接口设计规范](./node/rustful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/index.md)
 - [scream](./node/scream/index.md)
 - [webSocketRoom](./node/webSocketRoom/index.md)
+
+## linux 
+
+- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
+- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
+- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
 
 ## rust 
 
