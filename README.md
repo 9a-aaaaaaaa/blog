@@ -36,6 +36,11 @@
 - [面试相关](./javascript/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/index.md)
 - [音视频开发基础知识[转]](./javascript/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5B%E8%BD%AC%5D/index.md)
 
+## nginx 
+
+- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
+- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
+
 ## linux 
 
 - [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
@@ -50,6 +55,7 @@
 - [[4] cluster集群 学习](./node/%5B4%5D%20cluster%E9%9B%86%E7%BE%A4%20%E5%AD%A6%E4%B9%A0/index.md)
 - [buffer 深入在深入](./node/buffer%20%E6%B7%B1%E5%85%A5%E5%9C%A8%E6%B7%B1%E5%85%A5/index.md)
 - [cryptography](./node/cryptography/index.md)
+- [express](./node/express/index.md)
 - [https](./node/https/index.md)
 - [node && v8](./node/node%20%26%26%20v8/index.md)
 - [node 中的this 是什么？](./node/node%20%E4%B8%AD%E7%9A%84this%20%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/index.md)
@@ -57,13 +63,9 @@
 - [npm & pnpm & 琐碎知识点](./node/npm%20%26%20pnpm%20%26%20%E7%90%90%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/index.md)
 - [pm2](./node/pm2/index.md)
 - [restful](./node/restful/index.md)
+- [rustful接口设计规范和JWT认证](./node/rustful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83%E5%92%8CJWT%E8%AE%A4%E8%AF%81/index.md)
 - [scream](./node/scream/index.md)
 - [webSocketRoom](./node/webSocketRoom/index.md)
-
-## nginx 
-
-- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
-- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
 
 ## rust 
 

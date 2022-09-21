@@ -25,7 +25,7 @@ function generateMenu(md,fils,isRoot){
     if(!isRoot){
         try { fs.rmSync(md) } catch (error) {}
     }
-    console.log(md,fils,isRoot);
+    // console.log(md,fils,isRoot);
     fs.appendFileSync(md,fils+"\n",'utf-8');
 }
 
@@ -67,8 +67,9 @@ function initMainReadmd(){
     })
 }
 
-init();
+process.nextTick(()=>{
+    init();
+});
 
-setTimeout(()=>{
-    initMainReadmd();
-},2000)
+
+initMainReadmd();
