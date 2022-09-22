@@ -131,6 +131,13 @@ Docker 镜像 是一个特殊的文件系统，除了提供容器运行时所需
 
 [dockerhub](https://hub.docker.com/search?q=&type=image) 上有大量的高质量的镜像可以用，但是国内访问非常的慢，因此本地需要配置一个加速。找到这个目录`/etc/docker/daemon.json`，如果不存在则手动创建即可，默认的配置地址。
 
+```
+// login
+docker login -u username
+// input token
+```
+
+
 ```js
 {
   "registry-mirrors": ["https://zfzbet67.mirror.aliyuncs.com"]
@@ -182,17 +189,21 @@ docker ps
  - q 显示容器编号
  
 # 删除容器
-docker rm 容器id               # 如果是正在运行的必须加 -f
-docker rm -f $(docker ps -aq)  # 删除所有的容器
+# 如果是正在运行的必须加 -f
+docker container rm [如果要强制就加-f] id === docker rm 容器id 
+
+# 删除所有的容器 
+docker rm -f $(docker ps -aq)  === docker container prune  # 删除所有的容器
+
 
 
 # 启动和停止容器
-docker start   容器id
-docker stio    容器id
+docker start   容器id ===  docker container start 容器名称
+docker stop    容器id ===  docker container stop 容器名称 
 docker kill    容器id
 docker restart 容器id
 
-# 日志
+# 日志©
 # 后台运行一个容器，并且执行这个脚本
 docker run -d centos /bin/sh -c "while true; do echo qiuyanlong;sleep 3;done"
 docker logs -ft --tail 20 1380949901ed # 查询这个容器的日志

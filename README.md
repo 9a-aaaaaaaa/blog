@@ -17,6 +17,7 @@
 
 - [[git] 多个账户维护和提交](./git/%5Bgit%5D%20%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%8F%90%E4%BA%A4/index.md)
 - [[git] 子模块 submoudle 规范](./git/%5Bgit%5D%20%E5%AD%90%E6%A8%A1%E5%9D%97%20submoudle%20%E8%A7%84%E8%8C%83/index.md)
+- [github_actions_cli全方位解读](./git/github_actions_cli%E5%85%A8%E6%96%B9%E4%BD%8D%E8%A7%A3%E8%AF%BB/index.md)
 - [git基础](./git/git%E5%9F%BA%E7%A1%80/index.md)
 
 ## javascript 
@@ -35,6 +36,12 @@
 - [视频系列1-学习码率](./javascript/%E8%A7%86%E9%A2%91%E7%B3%BB%E5%88%971-%E5%AD%A6%E4%B9%A0%E7%A0%81%E7%8E%87/index.md)
 - [面试相关](./javascript/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/index.md)
 - [音视频开发基础知识[转]](./javascript/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5B%E8%BD%AC%5D/index.md)
+
+## linux 
+
+- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
+- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
+- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
 
 ## nginx 
 
@@ -60,12 +67,6 @@
 - [rustful接口设计规范](./node/rustful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/index.md)
 - [scream](./node/scream/index.md)
 - [webSocketRoom](./node/webSocketRoom/index.md)
-
-## linux 
-
-- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
-- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
-- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
 
 ## rust 
 
