@@ -69,7 +69,9 @@ jobs: 具体触发的任务
       steps: 步骤：
        - uses: git clone    第一步是下载代码，由于这个部分很通用，github已经做了封装了。actions/checkout@v1  // actions 官方仓库，checkout是官方的ci流程名字
        - run: echo hello;// 执行一个shell指令
-         width: 多策略的写法，一般用的不是很多 
+         
+       - users: actions/java	
+       	 width: java-version: 16 # width 主要是传递参数用的，配置users使用
        - run: |  有这个|可以写多行 
            node -v
            cargo -v
