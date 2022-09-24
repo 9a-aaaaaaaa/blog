@@ -9,7 +9,8 @@
 	numbering=true
 	autoSave=true
 	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc --># github actions 全方位解读
+<!-- /vscode-markdown-toc -->
+# github actions 
 
 
 
@@ -54,8 +55,8 @@ on:  触发的时机
     
     schedule: 和上面的二选一，适用于定时出发的任务
     
-jobs: 具体触发的任务
-    buld/或者自定义job1:
+jobs: #具体触发的任务
+    buld # 或者自定义名称 不一定是build
       runs-on: 表示在什么系统下运行，默认了几种
 
       container: 运行在这容器中，没有需要的话直接在乌班图中运行
@@ -67,17 +68,26 @@ jobs: 具体触发的任务
 
 
       steps: 步骤：
-       - uses: git clone    第一步是下载代码，由于这个部分很通用，github已经做了封装了。actions/checkout@v1  // actions 官方仓库，checkout是官方的ci流程名字
+
+        #  第一步是下载代码，由于这个部分很通用，github已经做了封装了。actions/checkout@v1  
+        #  actions 官方仓库，checkout是官方的ci流程名字
+        #  users 一般是使用已有的仓库
+       - uses: actions/node   
        - run: echo hello;// 执行一个shell指令
          
        - users: actions/java	
        	 width: java-version: 16 # width 主要是传递参数用的，配置users使用
-       - run: |  有这个|可以写多行 
+
+       #  有这个|可以写多行   
+       - run: | 
            node -v
            cargo -v
+
+    publish: # 定义一个publish的job
+      needs: build # 默认是并行，但是这里是依赖build结束后再执行的意思         
 ```
 
-`uses`: 的工作原理 指定的`ubuntu-latest` 中安装了各种语言的各种版本,在use中运行docker可以理解为安装一个新的，但不是当前这个环境
+`uses`: 的工作原理 指定的`ubuntu-latest` 中安装了各种语言的各种版本,在`use`中运行`docker`可以理解为安装一个新的，但不是当前这个环境
 
 
 
