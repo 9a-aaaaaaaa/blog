@@ -1,17 +1,14 @@
-<!-- vscode-markdown-toc -->
-    * 1. [commit 镜像](#commit-镜像)
-    * 2. [dockfile](#dockfile)
-        * 2.1. [案例1：使用nginx 简单构建一个镜像](#案例1：使用nginx-简单构建一个镜像)
-        * 2.2. [案例2：构建centos上传docker-pub](#案例2：构建centos上传docker-pub)
-    * 3. [卷挂载使用](#卷挂载使用)
-    * 4. [具名挂载和匿名挂载](#具名挂载和匿名挂载)
-    * 5. [练习：挂在mysql 数据](#练习：挂在mysql-数据)
+    
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+目录：
+
+1. [commit 镜像](#commit-镜像)
+2. [dockfile](#dockfile)
+	2.1. [案例1：使用nginx 简单构建一个镜像](#案例1：使用nginx-简单构建一个镜像)	
+	2.2. [案例2：构建centos上传docker-pub](#案例2：构建centos上传docker-pub)
+3. [卷挂载使用](#卷挂载使用)
+4. [具名挂载和匿名挂载](#具名挂载和匿名挂载)
+5. [练习：挂在mysql 数据](#练习：挂在mysql-数据)
 
 ![image.png](1.png)
 
