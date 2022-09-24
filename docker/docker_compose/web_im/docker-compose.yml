@@ -1,0 +1,72 @@
+version: '3'  # docker compose 版本
+services:
+
+  web2:
+    build: .
+    networks:  
+     - yach-net
+    ports:
+      - "8002:8001"
+  web: # 服务名称，名称随便写，一个服务就是一个容器
+
+   # 自动build 指定目录
+   # ./ dockfile 的上下文目录 
+   # 如果外部需要访问等，也需要指定暴露端口 
+   # 参考文档即可
+    build: .
+
+    # 覆盖，相当于执行node test.js 覆盖掉server.js
+    # command: ["test.js"]
+    
+    # container_name: yachTest  # 容器名称，不是必填，不建议指定
+    
+    # restart: always # 启动方式 挂了以后会自动重启  unless-stopped 不用重启
+    
+    
+    # [重要] 指定启动容器使用的网桥
+    # 和 docker run nextwork一样，一组项目的网桥应该是一样的,因此只要进入任何一个容器，通过ip可以访问到其他的容器
+    # docker inspect 网桥名 可以看到当前内部的容器的ip和网关
+    # docker exec -it xx  bash;   docker compsew无法使用容器名称来访问了，是ip
+    # 不能自动，需要主动声明一个全局的网桥
+    # 指定的网络，相互之间可以通信，多个容器之间
+    networks:  
+     - yach-net
+
+    # environment:  # 环境变量(重点) 可以是数据库等的密码等
+    # 支持数组的形式或者=的都可以  a:1  a=1
+    #   USERNAME: anikin
+    #   PASSWD: 12312
+    #   - DATABASE_URL=  'mysql://api_aaaa'
+    #   - TEST = 1
+ 
+    # volumes:   # 挂载盘 容器的数据保存在了外面
+    #   - ./data: /var/lib/postgresql/data
+
+    # 【编排的重要指令】启动依赖  可能写的其他container的名称  
+    #  比如等到数据库启动成功之后在启动  
+    # 服务不会等待被依赖的服务完全启动再启动
+    depends_on: 
+      - node
+
+    ports: # 端口映射，没有容器名称，默认会生成一个
+     - "8001:8001"
+
+     # 重点： 从文件中获取环境变量，可以为单独的文件路径或列表。
+     # 和enverment 一样，但是有些重要的密码等暴露的环境变量中不是很安全
+    env_file: .env # 推荐.开头文件是隐藏的
+
+  node:
+    image: "node:latest" # 使用当前这个服务的镜像是哪个
+    networks:  
+     - yach-net
+
+
+# 申明共享文件夹
+# volumes:
+
+
+  # 网络
+networks: 
+  yach-net :
+  
+  

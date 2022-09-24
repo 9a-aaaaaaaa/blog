@@ -1,4 +1,17 @@
+<!-- vscode-markdown-toc -->
+    * 1. [commit 镜像](#commit-镜像)
+    * 2. [dockfile](#dockfile)
+        * 2.1. [案例1：使用nginx 简单构建一个镜像](#案例1：使用nginx-简单构建一个镜像)
+        * 2.2. [案例2：构建centos上传docker-pub](#案例2：构建centos上传docker-pub)
+    * 3. [卷挂载使用](#卷挂载使用)
+    * 4. [具名挂载和匿名挂载](#具名挂载和匿名挂载)
+    * 5. [练习：挂在mysql 数据](#练习：挂在mysql-数据)
 
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
 
 ![image.png](1.png)
 
@@ -6,6 +19,8 @@
 
 
 # docker 可视化工具
+
+
 
 `Portainer` 是一个可视化的容器镜像的图形管理工具，利用Portainer可以轻松构建，管理和维护Docker环境。 而且完全免费，基于容器化的安装方式，方便高效部署。
 
@@ -26,10 +41,11 @@ http://localhost:9000/
 
 
 
+
 # 容器和数据卷
 目前理解到容器还有一个问题，就是如果整个容器被删除的话，所有的数据也会一起销毁掉，为了解决这个问题，可以使用数据卷把容器数据挂在的宿主机的磁盘上。
 
-### commit 镜像
+###  1. <a name='commit-镜像'></a>commit 镜像
 
 ![image.png](3.png)
 
@@ -65,7 +81,7 @@ centos                latest    300e315adb2f   7 months ago     209MB
 
 **【警告】** `docker commit` 意味着所有对镜像的操作都是黑箱操作，生成的镜像也被称为 黑箱镜像，换句话说，就是除了制作镜像的人知道执行过什么命令、怎么生成的镜像，别人根本无从得知。
 
-### dockfile
+###  2. <a name='dockfile'></a>dockfile
 
 从刚才的 `docker commit` 的学习中，我们可以了解到，镜像的定制实际上就是定制每一层所添加的配置、文件。如果我们可以把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么之前提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。这个脚本就是 `Dockerfile`。
 
@@ -73,7 +89,7 @@ centos                latest    300e315adb2f   7 months ago     209MB
 
 之前说过，`Dockerfile` 中每一个指令都会建立一层，`RUN`也不例外。每一个 `RUN` 的行为，就和刚才我们手工建立镜像的过程一样：新建立一层，在其上执行这些命令，执行结束后，`commit `这一层的修改，构成新的镜像。
 
-#### 案例1：使用nginx 简单构建一个镜像
+####  2.1. <a name='案例1：使用nginx-简单构建一个镜像'></a>案例1：使用nginx 简单构建一个镜像
 
 ```js
 touch mynginx && cd mynginx && touch Dockerfile
@@ -103,7 +119,7 @@ portainer/portainer   latest    580c0e4e98b0   4 months ago    79.1MB
 centos                latest    300e315adb2f   7 months ago    209MB
 ```
 
-#### 案例2：构建centos上传docker-pub
+####  2.2. <a name='案例2：构建centos上传docker-pub'></a>案例2：构建centos上传docker-pub
 
 实现两个功能：可以使用 `vim` 和 `ifconfig` 两个功能，完整实现`dockerfile`并且发布到`docker-pub`。
 
@@ -151,7 +167,7 @@ docker push zhangsan/dircentos:1.0
 
 
 
-### 卷挂载使用
+###  3. <a name='卷挂载使用'></a>卷挂载使用
 ```js
  docker run -it -v 主机目录:容器目录 
  
@@ -165,7 +181,7 @@ docker push zhangsan/dircentos:1.0
 ![image.png](7.png)
 
 
-### 具名挂载和匿名挂载 
+###  4. <a name='具名挂载和匿名挂载'></a>具名挂载和匿名挂载 
 `-v` 容器内路径 不写宿主机器的路径就是**匿名挂载**
 
 ```js
@@ -196,7 +212,7 @@ local     08f05b86ac17558c8b32b36ff7ac01907e115e4c6e9c0bba0d5c91b1dc5d2cc3
 local     test-nginx
 ```
 ![image.png](8.png)
-### 练习：挂在mysql 数据
+###  5. <a name='练习：挂在mysql-数据'></a>练习：挂在mysql 数据
 
 ```js
 # -p 端口映射
