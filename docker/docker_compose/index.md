@@ -134,3 +134,8 @@ docker-compose logs
 
 
 ```
+
+
+# 案例
+
+[mysql 连接的案例](https://citizix.com/how-to-run-mysql-8-with-docker-and-docker-compose/#:~:text=Using%20the%20docker%2Dcompose%20tool,-We%20can%20achieve&text=With%20Compose%2C%20you%20use%20a,to%20mount%20and%20environment%20variables.&text=The%20commands%3A,up%20brings%20up%20the%20container)

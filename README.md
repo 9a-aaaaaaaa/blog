@@ -3,7 +3,7 @@
 
 - [monodb 快速学习汇总](./db/monodb%20%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/index.md)
 - [mysql 学习笔记](./db/mysql%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.md)
-- [redis 相关](./db/redis%20%E7%9B%B8%E5%85%B3/index.md)
+- [redis](./db/redis/index.md)
 
 ## docker 
 
@@ -14,12 +14,6 @@
 - [k8s快如入门](./docker/k8s%E5%BF%AB%E5%A6%82%E5%85%A5%E9%97%A8/index.md)
 - [unix 环境变量设置](./docker/unix%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/index.md)
 - [持续集成--jenkins 入门到经通](./docker/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90--jenkins%20%E5%85%A5%E9%97%A8%E5%88%B0%E7%BB%8F%E9%80%9A/index.md)
-
-## linux 
-
-- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
-- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
-- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
 
 ## git 
 
@@ -45,6 +39,17 @@
 - [面试相关](./javascript/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/index.md)
 - [音视频开发基础知识[转]](./javascript/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5B%E8%BD%AC%5D/index.md)
 
+## linux 
+
+- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
+- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
+- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
+
+## nginx 
+
+- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
+- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
+
 ## node 
 
 - [JSON_Web_Token](./node/JSON_Web_Token/index.md)
@@ -64,11 +69,6 @@
 - [rustful接口设计规范](./node/rustful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/index.md)
 - [scream](./node/scream/index.md)
 - [webSocketRoom](./node/webSocketRoom/index.md)
-
-## nginx 
-
-- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
-- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
 
 ## rust 
 
