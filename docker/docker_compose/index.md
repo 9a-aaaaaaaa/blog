@@ -98,6 +98,9 @@ WORKDIR $MY_PATH
 docker compose up 
 
 
+# 启动的时候先打包
+docker compose up --build -d
+
 # docker compose 自己去根据Dockfile去构建镜像，然后再根据构建的镜像启动容器
 # 而不是我们先手动写Dockfile文件然后build。
 # build 和 image不能同时存在，会造成docker-compose 无法识别到底是应该使用个镜像
