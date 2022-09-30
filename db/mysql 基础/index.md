@@ -1,27 +1,25 @@
 
-# 安装
+# mysql 基础篇
 
-官网： https://www.mysql.com/downloads/
+- 概述
+- SQL
+- 函数与子查询
+- 约束
+- 多表查询
+- 事务
 
-## window
+## 1: 安装
+[参考](./install.md)
 
-参考，但是一定记得修改路径，视频里面没有进行明确的说明。
-https://www.bilibili.com/video/BV1GW411g7pF?from=search&seid=2994530132227188311&spm_id_from=333.337.0.0
+## 2: 概述
 
-![image.png](1.png)
+![主要包含的知识点](2022-09-30-11-43-23.png)
 
-如果提示路径冲突，就先把本地的目录删除掉，安装程序会自动的创建目录索引。
+![](2022-09-30-11-44-49.png)
 
-![image.png](2.png)
+SQL的基本分类
 
-navicat 连接数据库报错：https://blog.csdn.net/ron03129596/article/details/83069873
-
-
-# mac 安装和修改密码
-参考  https://zhuanlan.zhihu.com/p/27960044
-
-
-# mysql 的使用
+![](2022-09-30-11-46-04.png)
 
 ## 登录和退出MySQL服务器
 
@@ -35,20 +33,46 @@ exit;
 
 ## 基本语法
 
-`sql` 语句的结束符号必须是`;`
+
+### 1 DDL（数据定义语言）
+
+#### 1: 数据库操作
+
+```shell
+# 查询所有数据库：
+SHOW DATABASES;
+
+# 查询当前数据库：
+SELECT DATABASE();
+
+# 创建数据库：
+CREATE DATABASE [ IF NOT EXISTS ] 数据库名 [ DEFAULT CHARSET 字符集] [COLLATE 排序规则 ];
+
+# 删除数据库：
+DROP DATABASE [ IF EXISTS ] 数据库名;
+
+# 使用数据库：
+USE 数据库名;
+```
+
+#### 2: 表操作
+
+- 查询当前数据库所有表：`SHOW TABLES`;
+- 查询表结构：`DESC 表名`;
+- 查询指定表的建表语句：`SHOW CREATE TABLE 表名`
+- 创建表：
+```
+CREATE TABLE 表名(
+    字段1 字段1类型 [COMMENT 字段1注释],
+    字段2 字段2类型 [COMMENT 字段2注释],
+    字段3 字段3类型 [COMMENT 字段3注释],
+    ...
+    字段n 字段n类型 [COMMENT 字段n注释]
+)[ COMMENT 表注释 ];
+```
+举例：
 
 ```mysql
--- 显示所有数据库
-show databases;
-
--- 创建数据库
-CREATE DATABASE test;
-
--- 切换数据库
-use test;
-
--- 显示数据库中的所有表
-show tables;
 
 -- 创建数据表
 CREATE TABLE pet (
@@ -61,11 +85,7 @@ CREATE TABLE pet (
 );
 
 -- 查看数据表结构
--- describe pet;
-desc pet;
-
--- 查询表
-SELECT * from pet;
+ DESC pet;
 
 -- 插入数据
 INSERT INTO pet VALUES ('puffball', 'Diane', 'hamster', 'f', '1990-03-30', NULL);
@@ -80,7 +100,20 @@ DELETE FROM pet where name = 'squirrel';
 DROP TABLE myorder;
 ```
 
-## 数据结构
+- 添加字段：`ALTER TABLE 表名 ADD 字段名 类型(长度) [COMMENT 注释] [约束]`;
+例：`ALTER TABLE emp ADD nickname varchar(20) COMMENT '昵称'`;
+- 修改数据类型：`ALTER TABLE 表名 MODIFY 字段名 新数据类型(长度)`;
+
+- 修改字段名和字段类型：`ALTER TABLE 表名 CHANGE 旧字段名 新字段名 类型(长度) [COMMENT 注释] [约束]`;
+例：将`emp`表的`nickname`字段修改为`username`，类型为`varchar(30)`语句应该是：`ALTER TABLE emp CHANGE nickname username varchar(30) COMMENT '昵称'`;
+
+- 删除字段：`ALTER TABLE 表名 DROP 字段名`;
+- 修改表名：`ALTER TABLE 表名 RENAME TO 新表名`
+- 删除表：`DROP TABLE [IF EXISTS] 表名`;
+- 删除表，并重新创建该表：`TRUNCATE TABLE 表名`;
+
+
+#### 3：数据结构
 
 ![image.png](3.png)
 
@@ -90,7 +123,7 @@ DROP TABLE myorder;
 
 ![image.png](5.png)
 
-### decimal 类型说明
+#### 4：decimal 类型说明
 ```sql
 column_name  DECIMAL(P,D);
 -- P是表示有效数字数的精度。 P默认范围为1〜65。
@@ -101,7 +134,6 @@ amount DECIMAL(6,2);
 
 
 eg： 新建一张表test2：最大的两位数是正负99
-
 +-------+--------------+------+-----+---------+-------+
 | Field | Type         | Null | Key | Default | Extra |
 +-------+--------------+------+-----+---------+-------+
@@ -110,27 +142,65 @@ eg： 新建一张表test2：最大的两位数是正负99
 +-------+--------------+------+-----+---------+-------+
 
 INSERT INTO test2(num) VALUES(12.1251);  -- 12.13
-INSERT INTO test2(num) VALUES(12.122);   -- 12.12
-INSERT INTO test2(num) VALUES(12.12516); -- 12.13
 INSERT INTO test2(num) VALUES(12.12516312312312312);  --12.13
-
-
 mysql> INSERT INTO test2(num) VALUES(-89.991);
 Query OK, 1 row affected, 1 warning (0.01 sec)   --89.99
 
-mysql> INSERT INTO test2(num) VALUES(-89.999999);  --90.00
-Query OK, 1 row affected, 1 warning (0.01 sec)
-
-mysql> INSERT INTO test2(num) VALUES(-99.999999);
-ERROR 1264 (22003): Out of range value for column 'num' at row 1
-
-mysql> INSERT INTO test2(num) VALUES(-98.999999);  -99.00
-Query OK, 1 row affected, 1 warning (0.01 sec)
-
 ```
+
+### DML（数据操作语言）
+
+#### 添加数据
+
+- 指定字段：`INSERT INTO 表名 (字段名1, 字段名2, ...) VALUES (值1, 值2, ...)`;
+- 全部字段：`INSERT INTO 表名 VALUES (值1, 值2, ...);`
+- 批量添加数据：
+  - `INSERT INTO 表名 (字段名1, 字段名2, ...) VALUES (值1, 值2, ...), (值1, 值2, ...), (值1, 值2, ...);`
+  - `INSERT INTO 表名 VALUES (值1, 值2, ...), (值1, 值2, ...), (值1, 值2, ...);`
+
+#### 更新和删除数据
+
+- 修改数据：`UPDATE 表名 SET 字段名1 = 值1, 字段名2 = 值2, ... [ WHERE 条件 ];`
+例：`UPDATE emp SET name = 'Jack' WHERE id = 1;`
+- 删除数据：`DELETE FROM 表名 [ WHERE 条件 ];`
+
+
+### DQL（数据查询语言）
+```SQL
+SELECT
+    字段列表
+FROM
+    表名字段
+WHERE
+    条件列表
+GROUP BY
+    分组字段列表
+HAVING
+    分组后的条件列表
+ORDER BY
+    排序字段列表
+LIMIT
+    分页参数
+```
+#### 基础查询
+
+- 查询多个字段：
+    - `SELECT 字段1, 字段2, 字段3, ... FROM 表名;`
+    - `SELECT * FROM 表名;`
+- 设置别名:
+  - `SELECT 字段1 [ AS 别名1 ], 字段2 [ AS 别名2 ], 字段3 [ AS 别名3 ], ... FROM 表名;`
+  - `SELECT 字段1 [ 别名1 ], 字段2 [ 别名2 ], 字段3 [ 别名3 ], ... FROM 表名;`
+  - 
+- 去除重复记录：`SELECT DISTINCT 字段列表 FROM 表名;`
+
+
+
+
+
+
+
+
 ## 建表约束
-
-
 ### 主键约束
 
 **什么是主键？**
