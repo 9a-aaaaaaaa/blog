@@ -1,74 +1,5 @@
-<!-- vscode-markdown-toc -->
-  * 1. [0: 安装参考官网](#0:-安装参考官网)
-  * 2. [1: 启动](#1:-启动)
-  * 3. [2: 查看服务信息](#2:-查看服务信息)
-  * 4. [3: 关闭退出](#3:-关闭退出)
-* 1. [1. MongoDB 相关概念](#1.-mongodb-相关概念)
-  * 1.1. [1.1 业务场景](#1.1-业务场景)
-  * 1.2. [1.2 MongoDB 简介](#1.2-mongodb-简介)
-  * 1.3. [数据库 (databases) 管理语法](#数据库-(databases)-管理语法)
-  * 1.4. [集合 (collection) 管理语法](#集合-(collection)-管理语法)
-  * 1.5. [1.3. 数据模型](#1.3.-数据模型)
-  * 1.6. [1.4 MongoDB 的特点](#1.4-mongodb-的特点)
-    * 1.6.1. [1.4.1 高性能](#1.4.1-高性能)
-    * 1.6.2. [1.4.2 高可用](#1.4.2-高可用)
-    * 1.6.3. [1.4.3 高扩展](#1.4.3-高扩展)
-    * 1.6.4. [1.4.4 其他](#1.4.4-其他)
-    * 1.6.5. [mongo shell](#mongo-shell)
-* 2. [2. 基本常用命令](#2.-基本常用命令)
-  * 2.1. [2.1 数据库操作](#2.1-数据库操作)
-    * 2.1.1. [1 查看数据库](#1-查看数据库)
-    * 2.1.2. [2 选择数据库](#2-选择数据库)
-    * 2.1.3. [3 删除数据库](#3-删除数据库)
-    * 2.1.4. [4 查看集合](#4-查看集合)
-    * 2.1.5. [5 创建集合](#5-创建集合)
-    * 2.1.6. [6 删除集合](#6-删除集合)
-    * 2.1.7. [7 ID的组成：](#7-id的组成：)
-    * 2.1.8. [8 安全认证](#8-安全认证)
-  * 2.2. [2.2 文档基本 CRUD](#2.2-文档基本-crud)
-    * 2.2.1. [2.2.1 创建 Create](#2.2.1-创建-create)
-    * 2.2.2. [2.2.2 查询](#2.2.2-查询)
-    * 2.2.3. [1: 条件查询：](#1:-条件查询：)
-    * 2.2.4. [2: 分页查询](#2:-分页查询)
-    * 2.2.5. [3: 正则查询](#3:-正则查询)
-    * 2.2.6. [2.2.3 更新 Update](#2.2.3-更新-update)
-    * 2.2.7. [2.2.4 删除 Delete](#2.2.4-删除-delete)
-  * 2.3. [2.3 文档排序和投影 (sort & projection)](#2.3-文档排序和投影-(sort-&-projection))
-    * 2.3.1. [2.3.1 排序 Sort](#2.3.1-排序-sort)
-    * 2.3.2. [2.3.2 投影 Projection](#2.3.2-投影-projection)
-  * 2.4. [2.4 forEach()](#2.4-foreach())
-* 3. [3. 文档间的对应关系](#3.-文档间的对应关系)
-* 4. [4. MongoDB 的索引](#4.-mongodb-的索引)
-  * 4.1. [4.1 概述](#4.1-概述)
-  * 4.2. [4.2 索引的类型](#4.2-索引的类型)
-    * 4.2.1. [4.2.1 单字段索引](#4.2.1-单字段索引)
-    * 4.2.2. [4.2.2 复合索引](#4.2.2-复合索引)
-    * 4.2.3. [4.2.3 其他索引](#4.2.3-其他索引)
-  * 4.3. [4.3 索引的管理操作](#4.3-索引的管理操作)
-    * 4.3.1. [4.3.1 索引的查看](#4.3.1-索引的查看)
-    * 4.3.2. [4.3.2 索引的创建](#4.3.2-索引的创建)
-    * 4.3.3. [4.3.3 索引的删除](#4.3.3-索引的删除)
-  * 4.4. [4.4 索引使用](#4.4-索引使用)
-    * 4.4.1. [4.4.1 执行计划](#4.4.1-执行计划)
-    * 4.4.2. [4.4.2 涵盖的查询](#4.4.2-涵盖的查询)
-* 5. [5. 在 Nodejs 中使用 MongoDB - mongoose](#5.-在-nodejs-中使用-mongodb---mongoose)
-  * 5.1. [5.1 mongoose 提供的新对象类型](#5.1-mongoose-提供的新对象类型)
-  * 5.2. [5.2 简单使用 Mongoose](#5.2-简单使用-mongoose)
-  * 5.3. [5.3 Mongoose 的 CRUD](#5.3-mongoose-的-crud)
-* 6. [6. 使用 Mocha 编写测试 "Test Driven Development"](#6.-使用-mocha-编写测试-"test-driven-development")
-* 7. [7. 聚合操作](#7.-聚合操作)
-    * 7.1. [1: 单一作用集合](#1:-单一作用集合)
-    * 7.2. [2：聚合管道](#2：聚合管道)
-* 8. [References](#references)
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
 # 了解非关系型数据库 NoSQL - MongoDB | 安装使用以及 CRUD 操作
-
-**课程目标**
 
 MongoDB的副本集: 操作, 主要概念, 故障转移, 选举规则 MongoDB的分片集群：概念, 优点, 操作, 分片策略, 故障转移 MongoDB的安全认证
 
@@ -81,12 +12,15 @@ MongoDB的副本集: 操作, 主要概念, 故障转移, 选举规则 MongoDB的
 # 安装相关
 
 
-###  1. <a name='0:-安装参考官网'></a>0: 安装参考官网
+### 0: 安装参考官网
 参见[官网](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
 
 官方可视化 [compass](https://www.mongodb.com/docs/compass/current/install/)
 
-###  2. <a name='1:-启动'></a>1: 启动
+[docker 启动非常的方便](https://earthly.dev/blog/mongodb-docker/#top)
+
+
+### 1: 启动
 
 `MongoDB`的Shell工具`mongosh`是一个全功能的`JavaScript`和`Node.js`的`14.x REPL`与`MongoDB的`部署交互环境。我们通过它可以直接对数据库进行查询和操作。这个工具是需要在安装玩`MongoDB`后单独安装的。
 
@@ -125,12 +59,12 @@ db.geMongo(); // 当mongosh 连接数据库成功后，通过如下指令查看�
 ```
 
 
-###  3. <a name='2:-查看服务信息'></a>2: 查看服务信息
+### 2: 查看服务信息
 ```
 ps aux | grep -v grep | grep mongod
 ```
 
-###  4. <a name='3:-关闭退出'></a>3: 关闭退出
+### 3: 关闭退出
 
 ```
 // 1: 关闭方法
@@ -145,9 +79,9 @@ kill pid
 ```
 
 
-##  1. <a name='1.-mongodb-相关概念'></a>1. MongoDB 相关概念
+## 1. MongoDB 相关概念
 
-###  1.1. <a name='1.1-业务场景'></a>1.1 业务场景
+### 1.1 业务场景
 
 传统的关系型数据库 (比如 MySQL), 在数据操作的"三高"需求以及对应的 Web 2.0 网站需求面前, 会有"力不从心"的感觉
 
@@ -186,7 +120,7 @@ kill pid
 - 应用不需要事务及复杂 JOIN 支持
 - 新应用, 需求会变, 数据模型无法确定, 想快速迭代开发
 - 应用需要 2000 - 3000 以上的读写QPS（更高也可以）
-- 应用需要 TB 甚至 PB 级别数据存储
+- 应用需要 TB 甚至 PB 级别数据存储 
 - 应用发展迅速, 需要能快速水平扩展
 - 应用要求存储的数据不丢失
 - 应用需要 `99.999%` 高可用
@@ -200,9 +134,14 @@ kill pid
 > 相对MySQL, 可以以更低的成本解决问题（包括学习, 开发, 运维等成本）
 
 
-###  1.2. <a name='1.2-mongodb-简介'></a>1.2 MongoDB 简介
+### 1.2 MongoDB 简介
 
-> MongoDB是一个开源, 高性能, 无模式的文档型数据库, 当初的设计就是用于简化开发和方便扩展, 是NoSQL数据库产品中的一种.是最 像关系型数据库（MySQL）的非关系型数据库. 它支持的数据结构非常松散, 是一种类似于 JSON 的 格式叫BSON, 所以它既可以存储比较复杂的数据类型, 又相当的灵活. MongoDB中的记录是一个文档, 它是一个由字段和值对（ﬁeld:value）组成的数据结构.MongoDB文档类似于JSON对象, 即一个文档认 为就是一个对象.字段的数据类型是字符型, 它的值除了使用基本的一些类型外, 还可以包括其他文档, 普通数组和文档数组.
+> MongoDB是一个开源, 高性能, 无模式的文档型数据库, 当初的设计就是用于简化开发和方便扩展, 是NoSQL数据库产品中的一种.是**最像关系型数据库（MySQL）的非关系型数据库**。
+> 
+
+它支持的数据结构非常松散, 是一种类似于 `JSON` 的 格式叫`BSON`, 所以它既可以存储比较复杂的数据类型, 又相当的灵活. `MongoDB` 中的记录是一个文档, 它是一个由字段和值对（`ﬁeld:value`）组成的数据结构.
+
+`MongoDB`文档类似于`JSON`对象, 即一个文档认 为就是一个对象.字段的数据类型是字符型, 它的值除了使用基本的一些类型外, 还可以包括其他文档, 普通数组和文档数组.
 
 
 ![image.png](2.png)
@@ -232,17 +171,17 @@ MongoDB 数据模型是面向<u>文档</u>的, 所谓文档就是一种类似于
 在 MongoDB 中, 数据库和集合都不需要手动创建, 当我们创建文档时, 如果文档所在的集合或者数据库不存在, **则会自动创建数据库或者集合**
 
 
-###  1.3. <a name='数据库-(databases)-管理语法'></a>数据库 (databases) 管理语法
+### 数据库 (databases) 管理语法
 
 | 操作                                            | 语法                             |
 | ----------------------------------------------- | -------------------------------- |
 | 查看所有数据库                                  | `show dbs;` 或 `show databases;` |
 | 查看当前数据库                                  | `db;`                            |
-| 切换到某数据库 (**若数据库不存在则创建数据库**) | `use <db_name>;`                 |
+| 创建数据库或者切换数据库| `use <db_name>;`                 |
 | 删除当前数据库                                  | `db.dropDatabase();`             |
 
 
-###  1.4. <a name='集合-(collection)-管理语法'></a>集合 (collection) 管理语法
+### 集合 (collection) 管理语法
 
 | 操作         | 语法                                        |
 | ------------ | ------------------------------------------- |
@@ -251,14 +190,14 @@ MongoDB 数据模型是面向<u>文档</u>的, 所谓文档就是一种类似于
 | 删除集合     | `db.<collection_name>.drop()`               |
 
 
-###  1.5. <a name='1.3.-数据模型'></a>1.3. 数据模型
+### 1.3. 数据模型
 
 ![](6.png)
 
 
-###  1.6. <a name='1.4-mongodb-的特点'></a>1.4 MongoDB 的特点
+### 1.4 MongoDB 的特点
 
-####  1.6.1. <a name='1.4.1-高性能'></a>1.4.1 高性能
+#### 1.4.1 高性能
 
 MongoDB 提供高性能的数据持久化
 
@@ -268,12 +207,12 @@ MongoDB 提供高性能的数据持久化
 - Gridfs 解决文件存储需求
 
 
-####  1.6.2. <a name='1.4.2-高可用'></a>1.4.2 高可用
+#### 1.4.2 高可用
 
 MongoDB 的复制工具称作**副本集** (replica set) 可以提供自动<u>故障转移和数据冗余</u>
 
 
-####  1.6.3. <a name='1.4.3-高扩展'></a>1.4.3 高扩展
+#### 1.4.3 高扩展
 
 水平扩展是其核心功能一部分
 
@@ -283,12 +222,12 @@ MongoDB 支持基于**片键**创建数据区域, 在一个平衡的集群当中
 
 
 
-####  1.6.4. <a name='1.4.4-其他'></a>1.4.4 其他
+#### 1.4.4 其他
 
 MongoDB支持丰富的查询语言, 支持读和写操作(CRUD), 比如数据聚合, 文本搜索和地理空间查询等. 无模式（动态模式）, 灵活的文档模型
 
 
-####  1.6.5. <a name='mongo-shell'></a>mongo shell
+#### mongo shell
 
 ![image.png](7.png)
 
@@ -296,46 +235,46 @@ MongoDB支持丰富的查询语言, 支持读和写操作(CRUD), 比如数据聚
 ![image.png](8.png)
 
 
-##  2. <a name='2.-基本常用命令'></a>2. 基本常用命令
+## 2. 基本常用命令
 
 
-###  2.1. <a name='2.1-数据库操作'></a>2.1 数据库操作
+### 2.1 数据库操作
 
-####  2.1.1. <a name='1-查看数据库'></a>1 查看数据库
+#### 1 查看数据库
 
 `show databses/dbs` 
 `db`   查看当前使用的这个数据库
 
-####  2.1.2. <a name='2-选择数据库'></a>2 选择数据库
+#### 2 选择数据库
+use database[数据库名称] 
 
-use database[数据库名称] 选择不存在的数据库会隐式创建该数据库
+当使用 `use articledb` 的时候. `articledb` 其实存放在内存之中,show dbs看不到当前新创建的数据。 
 
->  当使用 `use articledb` 的时候. `articledb` 其实存放在内存之中, 当 `articledb` 中存在一个 `collection` 之后, `mongo` 才会将这个数据库持久化到硬盘之中。
-
-**这个是内存数据库最常见也是非常重要的手段，参考leveldb的底层实现，参考另一篇数据存贮文章中有详细的介绍。**
+当 `articledb` 中存在一个 `collection` 之后, `mongo` 才会将这个数据库持久化到硬盘之中。**这个是内存数据库最常见也是非常重要的手段，参考leveldb的底层实现，参考另一篇数据存贮文章中有详细的介绍。**
 
 系统默认的数据库是`test`。
 
 
-####  2.1.3. <a name='3-删除数据库'></a>3 删除数据库
+#### 3 删除数据库
 
 先选择到要删除的数据库 `db.dropDatabase()`
 
-####  2.1.4. <a name='4-查看集合'></a>4 查看集合
+#### 4 查看集合
 
 `show collections`
 
-####  2.1.5. <a name='5-创建集合'></a>5 创建集合
+#### 5 创建集合
 
 - 显示创建： `db.createCollection('c1', options)`
 - 隐式创建： 插入 `insert`文档的时候自动创建。
 
 
-####  2.1.6. <a name='6-删除集合'></a>6 删除集合
+#### 6 删除集合
 
-`db.集合名.drop()`
+- `db.集合名.drop()`
+- db.getCollection(name).drop()
 
-####  2.1.7. <a name='7-id的组成：'></a>7 ID的组成：
+#### 7 ID的组成：
 
 0 1 2 3 4 5 6 7 8 9 10 11
 
@@ -343,7 +282,7 @@ use database[数据库名称] 选择不存在的数据库会隐式创建该数�
 
 也可以自定义ID，只需要给插入的JSON数据增加_id键即可覆盖（强烈不推荐）
 
-####  2.1.8. <a name='8-安全认证'></a>8 安全认证
+#### 8 安全认证
 
 ![image.png](9.png)
 
@@ -388,18 +327,18 @@ exit;
 mongosh -u=xiaosan -p=1234561 --authenticationDatabase=yach
 ```
 
-###  2.2. <a name='2.2-文档基本-crud'></a>2.2 文档基本 CRUD
+### 2.2 文档基本 CRUD
 
 
 > 官方文档: https://docs.mongodb.com/manual/crud/
 
 
-####  2.2.1. <a name='2.2.1-创建-create'></a>2.2.1 创建 Create
+#### 2.2.1 创建 Create
 
 > Create or insert operations add new [documents](https://docs.mongodb.com/manual/core/document/#bson-document-format) to a [collection](https://docs.mongodb.com/manual/core/databases-and-collections/#collections). If the collection does **not** currently exist, insert operations will create the collection automatically.
 
 
-
+- db.collection.insert(); 可选参数 `writeConcern`和`ordered`。
 - 使用 `db.<collection_name>.insertOne()` 向集合中添加*一个文档*, 参数一个 json 格式的文档
 - 使用 `db.<collection_name>.insertMany()` 向集合中添加*多个文档*, 参数为 json 文档数组
 - `insert` 存在则抛错误
@@ -416,18 +355,16 @@ db.collection.insert({
 
 
 // 向集合中添加一个文档
-db.collection.insertOne(
+db.comment.insertOne(
    { item: "canvas", qty: 100, tags: ["cotton"], size: { h: 28, w: 35.5, uom: "cm" } }
 )
 // 向集合中添加多个文档
-db.collection.insertMany([
+db.comment.insertMany([
    { item: "journal", qty: 25, tags: ["blank", "red"], size: { h: 14, w: 21, uom: "cm" } },
    { item: "mat", qty: 85, tags: ["gray"], size: { h: 27.9, w: 35.5, uom: "cm" } },
    { item: "mousepad", qty: 25, tags: ["gel", "blue"], size: { h: 19, w: 22.85, uom: "cm" } }
 ])
 ```
-
-
 
 注：当我们向 `collection` 中插入 `document` 文档时, 如果没有给文档指定 `_id` 属性, 那么数据库会为文档自动添加 `_id` field, 并且值类型是 `ObjectId(blablabla)`, 就是文档的唯一标识, 类似于 relational database 里的 `primary key`
 
@@ -460,7 +397,7 @@ try {
 
 
 
-####  2.2.2. <a name='2.2.2-查询'></a>2.2.2 查询 
+#### 2.2.2 查询 
 
 
 
@@ -470,7 +407,7 @@ try {
 
 ![](11.png)
 
-####  2.2.3. <a name='1:-条件查询：'></a>1: 条件查询：
+#### 1: 条件查询：
 
 ![image.png](12.png)
 
@@ -502,13 +439,13 @@ try {
 } )
 ```
 
-####  2.2.4. <a name='2:-分页查询'></a>2: 分页查询
+#### 2: 分页查询
 
 ```
 db.comment.find({},{likenum:1}).sort({likenum:1}).skip(2).limit(2)
 ```
 
-####  2.2.5. <a name='3:-正则查询'></a>3: 正则查询
+#### 3: 正则查询
 
 在 terminal 中查看结果可能不是很方便, 所以我们可以用 `pretty()` 来帮助阅读
 
@@ -551,7 +488,7 @@ db.posts.find({
 
 
 
-####  2.2.6. <a name='2.2.3-更新-update'></a>2.2.3 更新 Update
+#### 2.2.3 更新 Update
 
 ![image.png](14.png)
 默认update修改多个只会改第一个。需要配合option参数，匹配不到默认会插入。
@@ -568,21 +505,8 @@ db.posts.find({
 其中最常用的修改操作符即为`$set`和`$unset`,分别表示**赋值**和**取消赋值**.
 
 ```javascript
-db.inventory.updateOne(
-    { item: "paper" },
-    {
-        $set: { "size.uom": "cm", status: "P" },
-        $currentDate: { lastModified: true }
-    }
-)
-
-db.inventory.updateMany(
-    { qty: { $lt: 50 } },
-    {
-        $set: { "size.uom": "in", status: "P" },
-        $currentDate: { lastModified: true }
-    }
-)
+// _id 是字符串， likenum自增接受的是number形
+db.comment.update({_id:String(5)},{$inc:{likenum:Number(1)}});
 ```
 
 `findAndModify`: **兼容了查询和修改指定文档的功能，只能更新单个文档**。
@@ -601,8 +525,6 @@ db.comment.findAndModify({query:{_id:"5"},update:{$inc:{likenum:1}}});
 }
 ```
 
-
-
 > - uses the [`$set`](https://docs.mongodb.com/manual/reference/operator/update/set/#up._S_set) operator to update the value of the `size.uom` field to `"cm"` and the value of the `status` field to `"P"`,
 > - uses the [`$currentDate`](https://docs.mongodb.com/manual/reference/operator/update/currentDate/#up._S_currentDate) operator to update the value of the `lastModified` field to the current date. If `lastModified` field does not exist, [`$currentDate`](https://docs.mongodb.com/manual/reference/operator/update/currentDate/#up._S_currentDate) will create the field. See [`$currentDate`](https://docs.mongodb.com/manual/reference/operator/update/currentDate/#up._S_currentDate) for details.
 
@@ -620,9 +542,6 @@ db.inventory.replaceOne(
 
 
 **批量修改**
-
-
-
 ```javascript
 // 默认会修改第一条
 db.document.update({ userid: "30", { $set {username: "guest"} } })
@@ -635,8 +554,6 @@ db.document.update( { userid: "30", { $set {username: "guest"} } }, {multi: true
 
 **列值增长的修改**
 
-
-
 如果我们想实现对某列值在原有值的基础上进行增加或减少, 可以使用 `$inc` 运算符来实现
 
 ```javascript
@@ -646,8 +563,6 @@ db.document.update({ _id: "3", {$inc: {likeNum: NumberInt(1)}} })
 
 
 ##### 修改操作符
-
-
 
 | Name                                                         | Description                                                  |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -663,7 +578,7 @@ db.document.update({ _id: "3", {$inc: {likeNum: NumberInt(1)}} })
 
 
 
-####  2.2.7. <a name='2.2.4-删除-delete'></a>2.2.4 删除 Delete
+#### 2.2.4 删除 Delete
 
 
 ![image.png](16.png)
@@ -681,13 +596,11 @@ db.inventory.deleteMany( { qty : { $lt : 50 } } )
 ```
 实际生产一般都是软删除。
 
-###  2.3. <a name='2.3-文档排序和投影-(sort-&-projection)'></a>2.3 文档排序和投影 (sort & projection)
+### 2.3 文档排序和投影 (sort & projection)
 
 
 
-####  2.3.1. <a name='2.3.1-排序-sort'></a>2.3.1 排序 Sort
-
-
+#### 2.3.1 排序 Sort
 
 在查询文档内容的时候, 默认是按照 `_id` 进行排序
 
@@ -707,8 +620,6 @@ db.users.aggregate(
    ]
 )
 ```
-
-
 
 ##### `$sort` Operator and Memory
 
@@ -730,7 +641,7 @@ db.posts.find().sort({ title : -1 }).limit(2).pretty()
 
 
 
-####  2.3.2. <a name='2.3.2-投影-projection'></a>2.3.2 投影 Projection
+#### 2.3.2 投影 Projection
 
 
 
@@ -747,14 +658,14 @@ db.posts.find().sort({ title : -1 }).limit(2).pretty()
 
 
 
-###  2.4. <a name='2.4-foreach()'></a>2.4 forEach()
+### 2.4 forEach()
 
 ```shell
 > db.posts.find().forEach(fucntion(doc) { print('Blog Post: ' + doc.title) })
 ```
 
 
-##  3. <a name='3.-文档间的对应关系'></a>3. 文档间的对应关系
+## 3. 文档间的对应关系
 
 - 一对一 (One To One)
 - 一对多 (One To Many)
@@ -771,9 +682,9 @@ db.orders.find( {user_id: user_id} )
 
 
 
-##  4. <a name='4.-mongodb-的索引'></a>4. MongoDB 的索引
+## 4. MongoDB 的索引
 
-###  4.1. <a name='4.1-概述'></a>4.1 概述
+### 4.1 概述
 
 
 
@@ -791,11 +702,10 @@ db.orders.find( {user_id: user_id} )
 
 MongoDB 使用的是 B Tree, MySQL 使用的是 B+ Tree
 
-![官网索引介绍](2022-09-20-21-26-54.png)
-![索引介绍](2022-09-20-21-27-52.png)
+
 
 ```javascript
-// create index 创建多个索引
+// create index
 db.<collection_name>.createIndex({ userid : 1, username : -1 })
 
 // retrieve indexes
@@ -817,11 +727,11 @@ db.<collection_name>.dropIndexes()
 
 
 
-###  4.2. <a name='4.2-索引的类型'></a>4.2 索引的类型
+### 4.2 索引的类型
 
 
 
-####  4.2.1. <a name='4.2.1-单字段索引'></a>4.2.1 单字段索引
+#### 4.2.1 单字段索引
 
 
 
@@ -832,7 +742,7 @@ MongoDB 支持在文档的单个字段上创建用户定义的**升序/降序索
 
 ![](17.png)
 
-####  4.2.2. <a name='4.2.2-复合索引'></a>4.2.2 复合索引
+#### 4.2.2 复合索引
 
 MongoDB 还支持多个字段的用户定义索引, 即复合索引 Compound Index
 
@@ -841,7 +751,7 @@ MongoDB 还支持多个字段的用户定义索引, 即复合索引 Compound Ind
 ![](18.png)
 
 
-####  4.2.3. <a name='4.2.3-其他索引'></a>4.2.3 其他索引
+#### 4.2.3 其他索引
 
 - 地理空间索引 Geospatial Index
 - 文本索引 Text Indexes
@@ -861,11 +771,11 @@ MongoDB 提供了一种文本索引类型, 支持在集合中搜索字符串内�
 
 
 
-###  4.3. <a name='4.3-索引的管理操作'></a>4.3 索引的管理操作
+### 4.3 索引的管理操作
 
 
 
-####  4.3.1. <a name='4.3.1-索引的查看'></a>4.3.1 索引的查看
+#### 4.3.1 索引的查看
 
 
 
@@ -887,7 +797,7 @@ db.collection.getIndexes()
 
 
 
-####  4.3.2. <a name='4.3.2-索引的创建'></a>4.3.2 索引的创建
+#### 4.3.2 索引的创建
 
 
 
@@ -930,7 +840,7 @@ $ db.comment.createIndex({userid:1,nickname:-1})
 
 
 
-####  4.3.3. <a name='4.3.3-索引的删除'></a>4.3.3 索引的删除
+#### 4.3.3 索引的删除
 
 
 
@@ -960,10 +870,10 @@ $ db.comment.dropIndex({userid:1})
 ```
 
 
-###  4.4. <a name='4.4-索引使用'></a>4.4 索引使用
+### 4.4 索引使用
 
 
-####  4.4.1. <a name='4.4.1-执行计划'></a>4.4.1 执行计划
+#### 4.4.1 执行计划
 
 
 
@@ -992,7 +902,7 @@ $ db.<collection_name>.find( query, options ).explain(options)
 
 
 
-####  4.4.2. <a name='4.4.2-涵盖的查询'></a>4.4.2 涵盖的查询
+#### 4.4.2 涵盖的查询
 
 
 当查询条件和查询的投影仅包含索引字段是, MongoDB 直接从索引返回结果, 而不扫描任何文档或将文档带入内存, 这些覆盖的查询十分有效
@@ -1001,7 +911,7 @@ $ db.<collection_name>.find( query, options ).explain(options)
 
 
 
-##  5. <a name='5.-在-nodejs-中使用-mongodb---mongoose'></a>5. 在 Nodejs 中使用 MongoDB - mongoose
+## 5. 在 Nodejs 中使用 MongoDB - mongoose
 
 mongoose 是一个对象文档模型（ODM）库
 
@@ -1014,7 +924,7 @@ mongoose 是一个对象文档模型（ODM）库
 
 
 
-###  5.1. <a name='5.1-mongoose-提供的新对象类型'></a>5.1 mongoose 提供的新对象类型
+### 5.1 mongoose 提供的新对象类型
 
 - Schema
   - 定义约束了数据库中的文档结构
@@ -1026,7 +936,7 @@ mongoose 是一个对象文档模型（ODM）库
 
 
 
-###  5.2. <a name='5.2-简单使用-mongoose'></a>5.2 简单使用 Mongoose
+### 5.2 简单使用 Mongoose
 
 > https://mongoosejs.com/docs/guide.html
 
@@ -1083,7 +993,7 @@ mongoose.connection.once("close", function() {
 ```
 
 
-###  5.3. <a name='5.3-mongoose-的-crud'></a>5.3 Mongoose 的 CRUD
+### 5.3 Mongoose 的 CRUD
 
 首先定义一个 `Schema`
 
@@ -1165,7 +1075,7 @@ mongoose 支持的用法有:
 - [`Model.updateMany()`](https://mongoosejs.com/docs/api.html#model_Model.updateMany)
 - [`Model.updateOne()`](https://mongoosejs.com/docs/api.html#model_Model.updateOne)
 
-##  6. <a name='6.-使用-mocha-编写测试-"test-driven-development"'></a>6. 使用 Mocha 编写测试 "Test Driven Development"
+## 6. 使用 Mocha 编写测试 "Test Driven Development"
 
 Mocha 是一个 js 测试的包, 编写测试有两个关键字 `describe` 和 `it`
 
@@ -1194,9 +1104,9 @@ describe('Creating records', () => {
 
 
 
-##  7. <a name='7.-聚合操作'></a>7. 聚合操作
+## 7. 聚合操作
 
-####  7.1. <a name='1:-单一作用集合'></a>1: 单一作用集合
+#### 1: 单一作用集合
 
 
 > DeprecationWarning: **Collection.count() is deprecated. Use countDocuments or estimatedDocumentCount** 在我使用的6.x上，**count**这个api已经废弃了。
@@ -1212,7 +1122,7 @@ db.comment.countDocuments({likenum:{$gt:1000}}); // 2
 db.comment.distinct("nickname",{likenum:{$gt:1000}}); // [ '凯 撒', '凯撒' ]
 ```
 
-####  7.2. <a name='2：聚合管道'></a>2：聚合管道
+#### 2：聚合管道
 前面的查询结果作为下一个操作的一个输入，自身作为一个输出，最后就会拿到这个结果集合。
 
 ![image.png](23.png)
@@ -1261,7 +1171,7 @@ show table; // 就可以查询这个了
 ```
 
 
-##  8. <a name='references'></a>References
+## References
 
 - https://mongoosejs.com/docs/guides.html
 - https://docs.mongodb.com/
