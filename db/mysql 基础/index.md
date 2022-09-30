@@ -1,13 +1,6 @@
 
 # mysql 基础篇
 
-- 概述
-- SQL
-- 函数与子查询
-- 约束
-- 多表查询
-- 事务
-
 ## 1: 安装
 [参考](./install.md)
 
@@ -123,6 +116,11 @@ DROP TABLE myorder;
 
 ![image.png](5.png)
 
+CHAR 性能稍微好点，因为是定长的。可变的是是varchar ，不可变的例如性别： char(1),存贮二进制的一般用的不多，一般是采用文件服务器来存储。
+
+
+
+
 #### 4：decimal 类型说明
 ```sql
 column_name  DECIMAL(P,D);
@@ -148,8 +146,14 @@ Query OK, 1 row affected, 1 warning (0.01 sec)   --89.99
 
 ```
 
-### DML（数据操作语言）
+#### 5：可视化工具
 
+- Sqlyog
+- Nacicat
+- DataGrip(推荐)
+
+### DML（数据操作语言）
+![](2022-09-30-12-14-13.png)
 #### 添加数据
 
 - 指定字段：`INSERT INTO 表名 (字段名1, 字段名2, ...) VALUES (值1, 值2, ...)`;
@@ -164,6 +168,7 @@ Query OK, 1 row affected, 1 warning (0.01 sec)   --89.99
 例：`UPDATE emp SET name = 'Jack' WHERE id = 1;`
 - 删除数据：`DELETE FROM 表名 [ WHERE 条件 ];`
 
+`delete`没有条件就是删除整张表，但是不能删除某一个字段的值，可以使用`update`。
 
 ### DQL（数据查询语言）
 ```SQL
@@ -182,6 +187,10 @@ ORDER BY
 LIMIT
     分页参数
 ```
+
+`DQL`主要包含以下部分:
+
+![](2022-09-30-12-16-06.png)
 #### 基础查询
 
 - 查询多个字段：
@@ -192,11 +201,6 @@ LIMIT
   - `SELECT 字段1 [ 别名1 ], 字段2 [ 别名2 ], 字段3 [ 别名3 ], ... FROM 表名;`
   - 
 - 去除重复记录：`SELECT DISTINCT 字段列表 FROM 表名;`
-
-
-
-
-
 
 
 
