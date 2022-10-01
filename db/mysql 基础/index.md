@@ -54,7 +54,8 @@ USE 数据库名;
 - 查询表结构：`DESC 表名`;
 - 查询指定表的建表语句：`SHOW CREATE TABLE 表名`
 - 创建表：
-```
+  
+```sql
 CREATE TABLE 表名(
     字段1 字段1类型 [COMMENT 字段1注释],
     字段2 字段2类型 [COMMENT 字段2注释],
@@ -65,7 +66,7 @@ CREATE TABLE 表名(
 ```
 举例：
 
-```mysql
+```sql
 
 -- 创建数据表
 CREATE TABLE pet (
@@ -94,11 +95,20 @@ DROP TABLE myorder;
 ```
 
 - 添加字段：`ALTER TABLE 表名 ADD 字段名 类型(长度) [COMMENT 注释] [约束]`;
-例：`ALTER TABLE emp ADD nickname varchar(20) COMMENT '昵称'`;
+例
+
+```sql
+`ALTER TABLE emp ADD nickname varchar(20) COMMENT '昵称'`;
+```
+  
 - 修改数据类型：`ALTER TABLE 表名 MODIFY 字段名 新数据类型(长度)`;
 
 - 修改字段名和字段类型：`ALTER TABLE 表名 CHANGE 旧字段名 新字段名 类型(长度) [COMMENT 注释] [约束]`;
-例：将`emp`表的`nickname`字段修改为`username`，类型为`varchar(30)`语句应该是：`ALTER TABLE emp CHANGE nickname username varchar(30) COMMENT '昵称'`;
+例：将`emp`表的`nickname`字段修改为`username`，类型为`varchar(30)`语句应该是
+
+```sql
+`ALTER TABLE emp CHANGE nickname username varchar(30) COMMENT '昵称'`
+```
 
 - 删除字段：`ALTER TABLE 表名 DROP 字段名`;
 - 修改表名：`ALTER TABLE 表名 RENAME TO 新表名`
@@ -162,10 +172,39 @@ Query OK, 1 row affected, 1 warning (0.01 sec)   --89.99
   - `INSERT INTO 表名 (字段名1, 字段名2, ...) VALUES (值1, 值2, ...), (值1, 值2, ...), (值1, 值2, ...);`
   - `INSERT INTO 表名 VALUES (值1, 值2, ...), (值1, 值2, ...), (值1, 值2, ...);`
 
+练习数据
+
+```sql
+create table emp
+(
+    id        tinyint unsigned auto_increment primary key,
+    worko     int             ,
+    name      varchar(20)     ,
+    sex       char            ,
+    age       tinyint unsigned,
+    idcard    varchar(18)      comment '身份证',
+    entrydate varchar(10)      comment '开学时间',
+    province  varchar(10)      comment '生源地'
+)
+ comment '员工表';
+
+ -- 插入数据
+
+INSERT INTO emp (worko, name, sex, age, idcard, entrydate,province)
+VALUES  (1001,"pp","女",13,'123345678901234567','2020-03-02','北京'),
+        (1002,"ANIKIN","男",3,'123345678901234533','2027-01-02','上海'),
+        (1003,"jj","男",23,'123345678901234534','2021-01-05','天津'),
+        (1004,"cc","女",35,'123345678901234590','2026-01-02','北京'),
+        (1005,"jock","男",83,'123345678901234522','2020-02-02','上海'),
+        (1006,"dudu","女",3,'123345678901234555','2025-01-02','福建'),
+        (1007,"rose","男",43,'123345678901234567','2020-01-02','天津'),
+        (1008,"bob","女",53,'123345678901234577','2029-01-02','甘肃');
+```
+
+
 #### 更新和删除数据
 
 - 修改数据：`UPDATE 表名 SET 字段名1 = 值1, 字段名2 = 值2, ... [ WHERE 条件 ];`
-例：`UPDATE emp SET name = 'Jack' WHERE id = 1;`
 - 删除数据：`DELETE FROM 表名 [ WHERE 条件 ];`
 
 `delete`没有条件就是删除整张表，但是不能删除某一个字段的值，可以使用`update`。
@@ -191,7 +230,7 @@ LIMIT
 `DQL`主要包含以下部分:
 
 ![](2022-09-30-12-16-06.png)
-#### 基础查询
+#### 1 基础查询
 
 - 查询多个字段：
     - `SELECT 字段1, 字段2, 字段3, ... FROM 表名;`
@@ -202,6 +241,124 @@ LIMIT
   - 
 - 去除重复记录：`SELECT DISTINCT 字段列表 FROM 表名;`
 
+#### 2 条件查询
+
+语法：
+`SELECT 字段列表 FROM 表名 WHERE 条件列表;`
+
+条件：
+
+| 比较运算符          | 功能                                        |
+| ------------------- | ------------------------------------------- |
+| >                   | 大于                                        |
+| >=                  | 大于等于                                    |
+| <                   | 小于                                        |
+| <=                  | 小于等于                                    |
+| =                   | 等于                                        |
+| <> 或 !=            | 不等于                                      |
+| BETWEEN ... AND ... | 在某个范围内（含最小、最大值）              |
+| IN(...)             | 在in之后的列表中的值，多选一                |
+| LIKE 占位符         | 模糊匹配（\_匹配单个字符，%匹配任意个字符） |
+| IS NULL             | 是NULL                                      |
+
+| 逻辑运算符         | 功能                         |
+| ------------------ | ---------------------------- |
+| AND 或 &&          | 并且（多个条件同时成立）     |
+| OR 或 &#124;&#124; | 或者（多个条件任意一个成立） |
+| NOT 或 !           | 非，不是                     |
+
+例子：
+```sql
+-- 年龄等于30
+select * from employee where age = 30;
+-- 年龄小于30
+select * from employee where age < 30;
+-- 小于等于
+select * from employee where age <= 30;
+-- 没有身份证
+select * from employee where idcard is null or idcard = '';
+-- 有身份证
+select * from employee where idcard;
+select * from employee where idcard is not null;
+-- 不等于
+select * from employee where age != 30;
+-- 年龄在20到30之间
+select * from employee where age between 20 and 30;
+select * from employee where age >= 20 and age <= 30;
+-- 下面语句不报错，但查不到任何信息
+select * from employee where age between 30 and 20;
+-- 性别为女且年龄小于30
+select * from employee where age < 30 and gender = '女';
+-- 年龄等于25或30或35
+select * from employee where age = 25 or age = 30 or age = 35;
+select * from employee where age in (25, 30, 35);
+
+-- 模糊匹配
+-- 姓名为两个字
+select * from employee where name like '__';
+-- 身份证最后为X
+select * from employee where idcard like '%X';
+```
+#### 3：聚合查询（聚合函数）
+
+常见聚合函数：
+
+| 函数  | 功能     |
+| ----- | -------- |
+| count | 统计数量 |
+| max   | 最大值   |
+| min   | 最小值   |
+| avg   | 平均值   |
+| sum   | 求和     |
+
+注意： null不参与聚合函数
+语法：
+`SELECT 聚合函数(字段列表) FROM 表名;`
+例：
+```sql
+-- 查询所有员工的数量
+SELECT COUNT('*') FROM emp;
+
+SELECT count(id) from employee where workaddress = "广东省";
+
+-- 北京员工的年龄之和
+SELECT sum(age) FROM emp WHERE province = '北京';
+```
+
+#### 分组查询
+
+语法：
+`SELECT 字段列表 FROM 表名 [ WHERE 条件 ] GROUP BY 分组字段名 [ HAVING 分组后的过滤条件 ];`
+
+> where 和 having 的区别：
+
+- 执行时机不同：where是分组之前进行过滤，不满足where条件不参与分组；having是分组后对结果进行过滤。
+- 判断条件不同：where不能对聚合函数进行判断，而having可以。
+
+例子：
+
+```sql
+-- 根据性别分组，统计男性和女性数量（只显示分组数量，不显示哪个是男哪个是女）
+select count(*) from employee group by gender;
+
+-- 根据性别分组，统计男性和女性数量
+select gender, count(*) from employee group by gender;
+
+-- 根据性别分组，统计男性和女性的平均年龄
+select gender, avg(age) from employee group by gender;
+
+-- 年龄小于45，并根据工作地址分组
+select workaddress, count(*) from employee where age < 45 group by workaddress;
+
+-- 年龄小于45，并根据工作地址分组，获取员工数量大于等于3的工作地址
+select workaddress, count(*) address_count from employee where age < 45 group by workaddress having address_count >= 3;
+```
+
+> 注意事项
+
+- 执行顺序：where > 聚合函数 > having
+- 分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义
+  
 
 
 ## 建表约束
