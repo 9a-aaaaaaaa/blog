@@ -325,7 +325,7 @@ SELECT count(id) from employee where workaddress = "广东省";
 SELECT sum(age) FROM emp WHERE province = '北京';
 ```
 
-#### 分组查询
+#### 4. 分组查询
 
 语法：
 `SELECT 字段列表 FROM 表名 [ WHERE 条件 ] GROUP BY 分组字段名 [ HAVING 分组后的过滤条件 ];`
