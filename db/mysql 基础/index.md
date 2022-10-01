@@ -364,7 +364,91 @@ SELECT province, COUNT(*) res FROM emp WHERE age < 50 GROUP BY emp.province havi
 - 执行顺序：where > 聚合函数 > having
 - 分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义
   
+#### 5. 排序查询
 
+语法：
+`SELECT 字段列表 FROM 表名 ORDER BY 字段1 排序方式1, 字段2 排序方式2;`
+
+排序方式：ASC: 升序（默认）DESC: 降序
+
+例子：
+
+```sql
+-- 先按照第一个字段排序，然后按照第二个字段排序
+-- ASC 升序默认的  DESC 降序
+SELECT * FROM emp ORDER BY age DESC ;
+SELECT * FROM emp ORDER BY entrydate DESC ;
+-- 年龄相同 按照入职时间降序
+SELECT * FROM emp ORDER BY age,entrydate DESC  ;
+```
+
+> 如果是多字段排序，当第一个字段值相同时，才会根据第二个字段进行排序
+
+#### 6. 分页查询
+
+语法：
+`SELECT 字段列表 FROM 表名 LIMIT 起始索引, 查询记录数;`
+
+例子：
+
+```sql
+-- 分页查询
+-- 查询第一页 每一页展示2；
+SELECT * FROM emp LIMIT 3;
+
+-- 第二页 每一页展示3条记录 （2 - 1）* 3
+SELECT  * FROM emp LIMIT 3,3;
+
+-- （3-1）*3 = 6
+SELECT  * FROM emp LIMIT 6,3;
+```
+#### 7. 执行顺序
+左边是编写顺序，右边是执行顺序
+![](2022-10-01-18-24-33.png)
+
+验证执行顺序
+
+```sql
+-- 执行顺序 注意区分编写顺序
+SELECT name,age FROM emp WHERE age > 15 ORDER BY age ASC;
+
+-- 验证执行顺序 先执行的是from 起一个别名，看看存在不
+SELECT e.name,e.age FROM emp e WHERE e.age > 15 ORDER BY e.age ASC;
+
+--  select 在order by之前执行
+SELECT e.name AS ename,e.age AS eage FROM emp e WHERE e.age > 15 ORDER BY eage ASC;
+```
+#### 8. 总结
+![](2022-10-01-18-25-55.png)
+
+综合练习：
+
+```sql
+-- 查询年龄在 女 20,21 22 23 员工信息
+SELECT * FROM emp WHERE  sex='女' AND age IN(20,21,22,23);
+
+-- 男 年龄在20-40岁 姓名为2个字的员工
+-- 带括号好看一些
+SELECT * FROM emp WHERE sex = '男' AND age BETWEEN 20 AND 40 AND name LIKE '__';
+
+SELECT * FROM emp WHERE sex = '男' AND （age BETWEEN 20 AND 40） AND name LIKE '__';
+
+-- 年龄小于60 男女人数
+SELECT sex, COUNT(sex) FROM emp WHERE age < 60 GROUP BY sex;
+
+-- 小于35岁员工年龄和姓名  查询结果升序排序 年龄相同按照降序排序
+SELECT name, age,entrydate FROM emp WHERE age <= 35 ORDER BY age,entrydate DESC ;
+
+-- 男 20-40含 前5个员工信息 结果按照年龄升序   按照入职时间升序排序
+-- limit 一般是在最后写，
+SELECT * FROM emp WHERE age BETWEEN 20 AND 100 ORDER BY age, entrydate ASC LIMIT 4;
+```
+
+##### 注意事项
+
+- 起始索引从0开始，起始索引 = （查询页码 - 1） * 每页显示记录数
+- 分页查询是数据库的方言，不同数据库有不同实现，MySQL是LIMIT
+- 如果查询的是第一页数据，起始索引可以省略，直接简写 LIMIT 10
 
 ## 建表约束
 ### 主键约束
