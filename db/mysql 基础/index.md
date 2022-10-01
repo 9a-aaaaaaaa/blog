@@ -347,11 +347,16 @@ select gender, count(*) from employee group by gender;
 -- 根据性别分组，统计男性和女性的平均年龄
 select gender, avg(age) from employee group by gender;
 
--- 年龄小于45，并根据工作地址分组
-select workaddress, count(*) from employee where age < 45 group by workaddress;
 
--- 年龄小于45，并根据工作地址分组，获取员工数量大于等于3的工作地址
-select workaddress, count(*) address_count from employee where age < 45 group by workaddress having address_count >= 3;
+-- 每个地方，年龄小于30的，人数有多少,996是福报。
+SELECT emp.province, COUNT(*) FROM emp WHERE age < 30 GROUP BY emp.province
+
+
+-- 每个地方，年龄小于45的，人数有多少 两种写法修一样
+SELECT emp.province, COUNT(*) FROM emp WHERE age < 50 GROUP BY emp.province having count(*) >=2;
+
+-- 使用res 重新定义
+SELECT province, COUNT(*) res FROM emp WHERE age < 50 GROUP BY emp.province having res >=2;
 ```
 
 > 注意事项
