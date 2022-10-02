@@ -1,4 +1,10 @@
 
+## db 
+
+- [monodb基础](./db/monodb%E5%9F%BA%E7%A1%80/index.md)
+- [mysql 基础](./db/mysql%20%E5%9F%BA%E7%A1%80/index.md)
+- [redis](./db/redis/index.md)
+
 ## docker 
 
 - [[5] pm2 前端部署调试最后一公里](./docker/%5B5%5D%20pm2%20%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2%E8%B0%83%E8%AF%95%E6%9C%80%E5%90%8E%E4%B8%80%E5%85%AC%E9%87%8C/index.md)
@@ -8,12 +14,6 @@
 - [k8s快如入门](./docker/k8s%E5%BF%AB%E5%A6%82%E5%85%A5%E9%97%A8/index.md)
 - [unix 环境变量设置](./docker/unix%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/index.md)
 - [持续集成--jenkins 入门到经通](./docker/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90--jenkins%20%E5%85%A5%E9%97%A8%E5%88%B0%E7%BB%8F%E9%80%9A/index.md)
-
-## db 
-
-- [monodb基础](./db/monodb%E5%9F%BA%E7%A1%80/index.md)
-- [mysql 基础](./db/mysql%20%E5%9F%BA%E7%A1%80/index.md)
-- [redis](./db/redis/index.md)
 
 ## git 
 
