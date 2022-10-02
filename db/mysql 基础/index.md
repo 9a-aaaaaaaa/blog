@@ -656,6 +656,12 @@ SELECT
     name,
     (CASE province WHEN province in('北京','上海') THEN  '一线城市' ELSE '二线城市' END) as 'city'
 FROM emp;
+
+
+SELECT
+    name,
+    IF(province in('北京','上海'),'一线城市','二线城市')
+FROM emp;
 ```
 
 
