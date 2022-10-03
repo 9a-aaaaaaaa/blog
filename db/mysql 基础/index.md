@@ -665,7 +665,18 @@ FROM emp;
 ```
 
 
-## 建表约束
+## 约束
+
+| 约束  | 描述  | 关键字  |
+| ------------ | ------------ | ------------ |
+| 非空约束  | 限制该字段的数据不能为null  | NOT NULL  |
+| 唯一约束  | 保证该字段的所有数据都是唯一、不重复的  | UNIQUE  |
+| 主键约束  | 主键是一行数据的唯一标识，要求非空且唯一  | PRIMARY KEY  |
+| 默认约束  | 保存数据时，如果未指定该字段的值，则采用默认值  | DEFAULT  |
+| 检查约束（8.0.1版本后）  | 保证字段值满足某一个条件  | CHECK  |
+| 外键约束  | 用来让两张图的数据之间建立连接，保证数据的一致性和完整性  | FOREIGN KEY  |
+
+约束是作用于表中字段上的，可以再创建表/修改表的时候添加约束。
 ### 主键约束
 
 **什么是主键？**
@@ -680,6 +691,16 @@ FROM emp;
 - `PRIMAPY` 就是主键的意思，表示定义的该列值在表中是唯一的意思，不可以有重复。
 - `AUTO_INCREMENT` 可以理解为自动递增的意思，每增加一条记录，值会自动加1。
 
+综合案例：
+```sql
+CREATE TABLE user(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL UNIQUE ,
+    age TINYINT UNSIGNED CHECK ( age >0 AND age < 120 ),
+    status CHAR(1) DEFAULT '1',
+    gender CHAR(1)
+);
+```
 
 **联合主键：** 就是用多个字段一起作为一张表的主键。mysql 主键参考 https://www.cnblogs.com/ccstu/p/12159895.html
 
@@ -785,7 +806,22 @@ alter table user3 modify info varchar(10) default 'beijing';
 
 ### 外键约束
 
-```mysql
+> 添加语法如下，注意，很多公司命令禁止🈲使用外键约束，因为外键约束有很多问题。
+![](2022-10-03-15-20-52.png)
+```SQL
+CREATE TABLE 表名(
+	字段名 字段类型,
+	...
+	[CONSTRAINT] [外键名称] FOREIGN KEY(外键字段名) REFERENCES 主表(主表列名)
+);
+ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段名) REFERENCES 主表(主表列名);
+
+-- 例子
+alter table emp add constraint fk_emp_dept_id foreign key(dept_id) references dept(id);
+```
+
+
+```sql
 -- 班级
 CREATE TABLE classes (
     id INT PRIMARY KEY,
@@ -799,16 +835,108 @@ CREATE TABLE students (
     -- 这里的 class_id 要和 classes 中的 id 字段相关联
     class_id INT,
     -- 表示 class_id 的值必须来自于 classes 中的 id 字段值
-    FOREIGN KEY(class_id) REFERENCES classes(id)
+    CONSTRAINT class_no FOREIGN KEY(class_id) REFERENCES classes(id)
 );
-
--- 1. 主表（父表）classes 中没有的数据值，在副表（子表）students 中，是不可以使用的；
--- 2. 主表中的记录被副表引用时，主表不可以被删除。delte from class where id=4; 报错
 ```
+删除外键：
+`ALTER TABLE 表名 DROP FOREIGN KEY 外键名;`
+
+
+外键删除/更新行为控制
+
+| 行为  | 说明  |
+| ------------ | ------------ |
+| NO ACTION  | 当在父表中删除/更新对应记录时，首先检查该记录是否有对应外键，如果有则不允许删除/更新（与RESTRICT一致）  |
+| RESTRICT  | 当在父表中删除/更新对应记录时，首先检查该记录是否有对应外键，如果有则不允许删除/更新（与NO ACTION一致）  |
+| CASCADE  | 当在父表中删除/更新对应记录时，首先检查该记录是否有对应外键，如果有则也删除/更新外键在子表中的记录  |
+| SET NULL  | 当在父表中删除/更新对应记录时，首先检查该记录是否有对应外键，如果有则设置子表中该外键值为null（要求该外键允许为null）  |
+| SET DEFAULT  | 父表有变更时，子表将外键设为一个默认值（Innodb不支持）  |
+
+更改删除/更新行为：
+`ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段) REFERENCES 主表名(主表字段名) ON UPDATE 行为 ON DELETE 行为;`
+
+## 多表查询
+
+### 多表关系
+
+什么事多表查询
+![](2022-10-03-15-27-36.png)
+
+主要分为以下几类：
+![主要包含了几点](2022-10-03-15-28-11.png)
+#### 一对多
+
+案例：部门与员工。
+
+关系：一个部门对应多个员工，一个员工对应一个部门。
+
+实现：在多的一方建立外键，指向一的一方的主键。
+
+#### 多对多
+![](2022-10-03-15-26-35.png)
+
+
+#### 一对一
+![](2022-10-03-15-27-05.png)
+
+### 查询
+
+合并查询（笛卡尔积，会展示所有组合结果）：
+`select * from employee, dept;`
+
+> 笛卡尔积：两个集合A集合和B集合的所有组合情况（在多表查询时，需要消除无效的笛卡尔积）
+
+消除无效笛卡尔积：
+`select * from employee, dept where employee.dept = dept.id;`
+
+### 内连接查询
+
+内连接查询的是两张表交集的部分
+
+隐式内连接：
+`SELECT 字段列表 FROM 表1, 表2 WHERE 条件 ...;`
+
+显式内连接：
+`SELECT 字段列表 FROM 表1 [ INNER ] JOIN 表2 ON 连接条件 ...;`
+
+显式性能比隐式高
+
+例子：
+
+```SQL
+-- 查询员工姓名，及关联的部门的名称
+-- 隐式
+select e.name, d.name from employee as e, dept as d where e.dept = d.id;
+-- 显式
+select e.name, d.name from employee as e inner join dept as d on e.dept = d.id;
+```
+
+### 外连接查询
+
+左外连接：查询左表所有数据，以及两张表交集部分数据
+`SELECT 字段列表 FROM 表1 LEFT [ OUTER ] JOIN 表2 ON 条件 ...;`
+相当于查询表1的所有数据，包含表1和表2交集部分数据
+
+右外连接：查询右表所有数据，以及两张表交集部分数据
+`SELECT 字段列表 FROM 表1 RIGHT [ OUTER ] JOIN 表2 ON 条件 ...;`
+
+例子：
+
+```sql
+-- 左
+select e.*, d.name from employee as e left outer join dept as d on e.dept = d.id;
+
+select d.name, e.* from dept d left outer join emp e on e.dept = d.id;  -- 这条语句与下面的语句效果一样
+
+-- 右
+select d.name, e.* from employee as e right outer join dept as d on e.dept = d.id;
+
+```
+
+左连接可以查询到没有dept的employee，右连接可以查询到没有employee的dept
 
 
 ## 数据库的三大设计范式
-
 ### 1NF
 
 只要字段值还可以继续拆分，就不满足第一范式。

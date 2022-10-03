@@ -22,12 +22,6 @@
 - [github actions](./git/github%20actions/index.md)
 - [git基础](./git/git%E5%9F%BA%E7%A1%80/index.md)
 
-## linux 
-
-- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
-- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
-- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
-
 ## javascript 
 
 - [[数据结构] 二叉树](./javascript/%5B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%5D%20%E4%BA%8C%E5%8F%89%E6%A0%91/index.md)
@@ -44,6 +38,12 @@
 - [视频系列1-学习码率](./javascript/%E8%A7%86%E9%A2%91%E7%B3%BB%E5%88%971-%E5%AD%A6%E4%B9%A0%E7%A0%81%E7%8E%87/index.md)
 - [面试相关](./javascript/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/index.md)
 - [音视频开发基础知识[转]](./javascript/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5B%E8%BD%AC%5D/index.md)
+
+## linux 
+
+- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
+- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
+- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
 
 ## nginx 
 

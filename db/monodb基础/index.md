@@ -683,18 +683,12 @@ db.orders.find( {user_id: user_id} )
 
 
 ## 4. MongoDB 的索引
-
 ### 4.1 概述
-
-
 
 索引支持在 MongoDB 中高效地执行查询.如果没有索引, MongoDB 必须执行全集合扫描, 即扫描集合中的每个文档, 以选择与查询语句 匹配的文档.这种扫描全集合的查询效率是非常低的, 特别在处理大量的数据时, 查询可以要花费几十秒甚至几分钟, 这对网站的性能是非常致命的. 
 
 
-
 如果查询存在适当的索引, MongoDB 可以使用该索引限制必须检查的文档数. 
-
-
 
 索引是特殊的数据结构, 它以易于遍历的形式存储集合数据集的一小部分.索引存储特定字段或一组字段的值, 按字段值排序.索引项的排 序支持有效的相等匹配和基于范围的查询操作.此外, MongoDB 还可以使用索引中的排序返回排序结果.
 
@@ -729,11 +723,7 @@ db.<collection_name>.dropIndexes()
 
 ### 4.2 索引的类型
 
-
-
 #### 4.2.1 单字段索引
-
-
 
 MongoDB 支持在文档的单个字段上创建用户定义的**升序/降序索引**, 称为**单字段索引** Single Field Index
 
@@ -781,8 +771,18 @@ MongoDB 提供了一种文本索引类型, 支持在集合中搜索字符串内�
 
 语法
 
-```
-db.collection.getIndexes()
+```js
+db.collection.getIndexes();
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1 // 默认_id: 升序的方式
+		},
+		"name" : "_id_", // 默认索引名称
+		"ns" : "yach.book" // namespace 
+	}
+]
 ```
 
 
@@ -906,7 +906,7 @@ $ db.<collection_name>.find( query, options ).explain(options)
 
 
 当查询条件和查询的投影仅包含索引字段是, MongoDB 直接从索引返回结果, 而不扫描任何文档或将文档带入内存, 这些覆盖的查询十分有效
-
+![](2022-10-02-14-54-56.png)
 > https://docs.mongodb.com/manual/core/query-optimization/#covered-query
 
 
