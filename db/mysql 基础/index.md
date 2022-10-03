@@ -807,6 +807,8 @@ alter table user3 modify info varchar(10) default 'beijing';
 ### 外键约束
 
 > 添加语法如下，注意，很多公司命令禁止🈲使用外键约束，因为外键约束有很多问题。
+
+
 ![](2022-10-03-15-20-52.png)
 ```SQL
 CREATE TABLE 表名(
