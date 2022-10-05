@@ -41,16 +41,17 @@
 - [面试相关](./javascript/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/index.md)
 - [音视频开发基础知识[转]](./javascript/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5B%E8%BD%AC%5D/index.md)
 
-## nginx 
-
-- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
-- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
-
 ## linux 
 
 - [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
 - [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
-- [【shell】 简单学习1](./linux/%E3%80%90shell%E3%80%91%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A01/index.md)
+- [【shell】变量和字符串](./linux/%E3%80%90shell%E3%80%91%E5%8F%98%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/index.md)
+- [【shell】整体介绍](./linux/%E3%80%90shell%E3%80%91%E6%95%B4%E4%BD%93%E4%BB%8B%E7%BB%8D/index.md)
+
+## nginx 
+
+- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
+- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
 
 ## node 
 
