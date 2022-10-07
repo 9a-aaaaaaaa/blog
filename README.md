@@ -1,11 +1,17 @@
 
 ## db 
 
+- [InnoDB引擎](./db/InnoDB%E5%BC%95%E6%93%8E/index.md)
+- [SQL优化](./db/SQL%E4%BC%98%E5%8C%96/index.md)
 - [monodb基础](./db/monodb%E5%9F%BA%E7%A1%80/index.md)
 - [mysql 基础](./db/mysql%20%E5%9F%BA%E7%A1%80/index.md)
 - [mysql事务](./db/mysql%E4%BA%8B%E5%8A%A1/index.md)
 - [mysql多表查询⭐️](./db/mysql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E2%AD%90%EF%B8%8F/index.md)
+- [mysql存储引擎](./db/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/index.md)
+- [mysql管理](./db/mysql%E7%AE%A1%E7%90%86/index.md)
+- [mysql索引](./db/mysql%E7%B4%A2%E5%BC%95/index.md)
 - [redis](./db/redis/index.md)
+- [锁🔐](./db/%E9%94%81%F0%9F%94%90/index.md)
 
 ## docker 
 
@@ -16,25 +22,6 @@
 - [k8s快如入门](./docker/k8s%E5%BF%AB%E5%A6%82%E5%85%A5%E9%97%A8/index.md)
 - [unix 环境变量设置](./docker/unix%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/index.md)
 - [持续集成--jenkins 入门到经通](./docker/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90--jenkins%20%E5%85%A5%E9%97%A8%E5%88%B0%E7%BB%8F%E9%80%9A/index.md)
-
-## git 
-
-- [[git] 多个账户维护和提交](./git/%5Bgit%5D%20%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%8F%90%E4%BA%A4/index.md)
-- [[git] 子模块 submoudle 规范](./git/%5Bgit%5D%20%E5%AD%90%E6%A8%A1%E5%9D%97%20submoudle%20%E8%A7%84%E8%8C%83/index.md)
-- [github actions](./git/github%20actions/index.md)
-- [git基础](./git/git%E5%9F%BA%E7%A1%80/index.md)
-
-## linux 
-
-- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
-- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
-- [【shell】变量和字符串](./linux/%E3%80%90shell%E3%80%91%E5%8F%98%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/index.md)
-- [【shell】整体介绍](./linux/%E3%80%90shell%E3%80%91%E6%95%B4%E4%BD%93%E4%BB%8B%E7%BB%8D/index.md)
-
-## nginx 
-
-- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
-- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
 
 ## javascript 
 
@@ -52,6 +39,26 @@
 - [视频系列1-学习码率](./javascript/%E8%A7%86%E9%A2%91%E7%B3%BB%E5%88%971-%E5%AD%A6%E4%B9%A0%E7%A0%81%E7%8E%87/index.md)
 - [面试相关](./javascript/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/index.md)
 - [音视频开发基础知识[转]](./javascript/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5B%E8%BD%AC%5D/index.md)
+
+## linux 
+
+- [【linux】1：用户权限和用户组](./linux/%E3%80%90linux%E3%80%911%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/index.md)
+- [【linux】2：文件属性和权限变更](./linux/%E3%80%90linux%E3%80%912%EF%BC%9A%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%92%8C%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4/index.md)
+- [【shell】变量和字符串](./linux/%E3%80%90shell%E3%80%91%E5%8F%98%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/index.md)
+- [【shell】整体介绍](./linux/%E3%80%90shell%E3%80%91%E6%95%B4%E4%BD%93%E4%BB%8B%E7%BB%8D/index.md)
+- [【shell】父子shell和计算](./linux/%E3%80%90shell%E3%80%91%E7%88%B6%E5%AD%90shell%E5%92%8C%E8%AE%A1%E7%AE%97/index.md)
+
+## nginx 
+
+- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
+- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
+
+## git 
+
+- [[git] 多个账户维护和提交](./git/%5Bgit%5D%20%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%8F%90%E4%BA%A4/index.md)
+- [[git] 子模块 submoudle 规范](./git/%5Bgit%5D%20%E5%AD%90%E6%A8%A1%E5%9D%97%20submoudle%20%E8%A7%84%E8%8C%83/index.md)
+- [github actions](./git/github%20actions/index.md)
+- [git基础](./git/git%E5%9F%BA%E7%A1%80/index.md)
 
 ## node 
 

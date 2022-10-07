@@ -140,4 +140,75 @@ echo $name |  wc -L
 expr length ${name}
 echo 'this is a test' | awk '{print length($0)}'
 echo ${#name} # 性能最好的
+# 统计时间 realtime 表示真是时间
+time for n in {1..10000}; do echo $n; done;`
+# 生成1-10的随机序列
+seq 10;
 ```
+内置命令效果更加高效。
+
+```bash
+# 
+echo ${name2#a*a}
+echo $name2
+echo ${name2##a*a}
+
+# 严格匹配开头和结尾
+echo ${name/anikin/jack}
+```
+
+### 字符串的处理
+- ${param:-word} 如果param 为空，返回world
+- ${param:=word} 如果param 为空，则world替代变量值，返回
+- ${param:?word} 如果param 为空，world当做标准输出，否则将word设置错误信息
+- ${param:+word} 如果param 为空，什么都不做，否则返回world
+
+案例：
+
+```bash
+#! /bin/bash
+
+# 以下两个都是 有值等于自己 否则等于给定的值 只是=也会给变量赋值
+change="origin data"
+result=${change:-no change data}
+echo $result
+
+unset change
+result=${change:=no change data}
+echo $result; echo $change;
+
+# :? 处理错误使用的 当变量值为空的时候主动抛出错位
+# stdout code = 1
+# stderr code = 2
+
+echo ${new_name}
+echo ${new_name:?该变量值为空}
+
+# :+ 变量为空什么都不做，否则字符返回给接受者
+new_name="has value!"
+result2=${new_name:+last value is 100}
+echo $result2; 
+```
+
+```bash
+#! /bin/bash
+# 如果变量名不存在，进行兼容
+getText=`grep "^#" names.txt -v  | grep "^$" -v`
+echo $getText
+```
+
+文件名批量替换
+```bash
+touch fk_{1..5}_face.jpg
+touch fk_{1..5}_face.png
+
+# ls *.jpg *.png
+# ls *_face.jpg *_face.png
+str=`ls | grep fk`;  
+
+for i in $str;
+ do newName=`echo ${i//_face/}`; # 全局匹配的方式  
+  mv $i $newName;  
+done;
+```
+
