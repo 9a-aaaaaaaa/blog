@@ -1,7 +1,6 @@
 
 ## db 
 
-- [SQL优化](./SQL%E4%BC%98%E5%8C%96/index.md)
 - [monodb基础](./monodb%E5%9F%BA%E7%A1%80/index.md)
 - [mysql 基础](./mysql%20%E5%9F%BA%E7%A1%80/index.md)
 - [mysql事务](./mysql%E4%BA%8B%E5%8A%A1/index.md)
