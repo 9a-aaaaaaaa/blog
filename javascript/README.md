@@ -8,6 +8,7 @@
 - [js 经典排序算法](./js%20%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/index.md)
 - [react hooks](./react%20hooks/index.md)
 - [rollup 简单学习](./rollup%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/index.md)
+- [rxjs](./rxjs/index.md)
 - [typescript 持续学习](./typescript%20%E6%8C%81%E7%BB%AD%E5%AD%A6%E4%B9%A0/index.md)
 - [webpack5 整理使用](./webpack5%20%E6%95%B4%E7%90%86%E4%BD%BF%E7%94%A8/index.md)
 - [前端项目代码流程规范化常见工具](./%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83%E5%8C%96%E5%B8%B8%E8%A7%81%E5%B7%A5%E5%85%B7/index.md)

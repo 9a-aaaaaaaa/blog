@@ -7,3 +7,4 @@
 - [【shell】常见命令](./%E3%80%90shell%E3%80%91%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/index.md)
 - [【shell】整体介绍](./%E3%80%90shell%E3%80%91%E6%95%B4%E4%BD%93%E4%BB%8B%E7%BB%8D/index.md)
 - [【shell】父子shell和计算](./%E3%80%90shell%E3%80%91%E7%88%B6%E5%AD%90shell%E5%92%8C%E8%AE%A1%E7%AE%97/index.md)
+- [【shell】逻辑判断](./%E3%80%90shell%E3%80%91%E9%80%BB%E8%BE%91%E5%88%A4%E6%96%AD/index.md)

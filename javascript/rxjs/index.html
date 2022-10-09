@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.5.7/rxjs.umd.min.js"></script>
+
+    <style>
+        .app{
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="app">rxjs 演示页面</div>
+    <user-card title="案例1">
+        <span slot="title">插槽传值</slot>
+        <button class="count" slot="custom-element">count</button>   
+    </user-card>
+
+    <user-card title="案例2">
+        <button id="button2" slot="custom-element">2222</button>
+        <span slot="title">web Components</slot>
+    </user-card>
+    
+    <template id="userCardTemplate">
+        <style>
+         :host {
+           display: flex;
+           /* align-items: center; */
+           width: 450px;
+           height: 180px;
+           background-color: #d4d4d4;
+           border: 1px solid #d5d5d5;
+           box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+           border-radius: 3px;
+           overflow: hidden;
+           box-sizing: border-box;
+           font-family: 'Poppins', sans-serif;
+           margin: 10px;
+         }
+         .container {
+           box-sizing: border-box;
+         }
+         .container > .title {
+           padding: 5px;
+           font-size: 12px;
+           border-radius: 5px;
+           text-transform: uppercase;
+         }
+         .code {
+            color:red;
+         }
+        </style>
+      
+        <div class="container">
+            <slot class="title" name="title"></slot>
+            <slot name="custom-element"></slot>
+            <code class="code" slot="code">
+               
+            </code>
+        </div>
+    </template>
+      
+    <script src="./main.js" type="module"></script>
+
+    <script src="./app.js"></script>
+</body>
+</html>
