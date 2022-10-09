@@ -218,12 +218,15 @@ DROP INDEX idx_company_salary ON company;
 
 
 
-### profile
+### profile 详情
 
-show profile 能在做SQL优化时帮我们了解时间都耗费在哪里。通过 have_profiling 参数，能看到当前 MySQL 是否支持 profile 操作：
-`SELECT @@have_profiling;`
-profiling 默认关闭，可以通过set语句在session/global级别开启 profiling：
-`SET profiling = 1;`
+`show profile` 能在做SQL优化时帮我们了解时间都耗费在哪里。通过 have_profiling 参数，能看到当前 MySQL 是否支持 profile。
+
+操作：`SELECT @@have_profiling;` profiling 默认关闭。
+
+可以通过set语句在session/global级别开启 profiling：`SET profiling = 1;`
+
+
 查看所有语句的耗时：
 `show profiles;`
 查看指定query_id的SQL语句各个阶段的耗时：
@@ -331,7 +334,7 @@ show index 里面的sub_part可以看到接取的长度
 2. 针对于常作为查询条件（where）、排序（order by）、分组（group by）操作的字段建立索引
 3. 尽量选择区分度高的列作为索引，尽量建立唯一索引，区分度越高，使用索引的效率越高
 4. 如果是字符串类型的字段，字段长度较长，可以针对于字段的特点，建立前缀索引
-5. 尽量使用联合索引，减少单列索引，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率
+5. **尽量使用联合索引，减少单列索引，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率**
 6. 要控制索引的数量，索引并不是多多益善，索引越多，维护索引结构的代价就越大，会影响增删改的效率
 7. 如果索引列不能存储NULL值，请在创建表时使用NOT NULL约束它。当优化器知道每列是否包含NULL值时，它可以更好地确定哪个索引最有效地用于查询
 
