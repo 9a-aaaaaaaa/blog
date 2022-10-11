@@ -7,8 +7,14 @@
 
 本文目的也是快速上手搭建一套适合自己的项目开发标准，适合扩展和封装，尝试使用一文完成前端本地代码开发的全部的讲解。
 
-# 1: husky
 
+## 快速连接
+
+- [ESlint与Prettier配置指南](https://juejin.cn/post/7050127881371910152)
+- [husky](https://dev.to/ivadyhabimana/setup-eslint-prettier-and-husky-in-a-node-project-a-step-by-step-guide-946)
+- 
+
+## 1: husky
 **功能作用**：可以简单增加`git hooks`，非常有利于项目持续集成和代码检测。
 
 
@@ -109,6 +115,19 @@ yarn add --dev lint-staged
 
 - **代码质量问题**：使用方式有可能有问题(problematic patterns)
 - **代码风格问题**：风格不符合一定规则 (doesn’t adhere to certain style guidelines)。
+
+
+**`ESLint`忽略指定文件夹或文件**：
+
+`.eslintignore`文件，将不想应用`eslin`t规则检测的文件或文件夹加在里面就可以了，例如
+```
+build
+config/*.js
+test/a.js
+static/dist
+
+```
+
 
  快速体验案例：
  

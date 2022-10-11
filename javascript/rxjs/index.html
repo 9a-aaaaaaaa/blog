@@ -12,6 +12,16 @@
             line-height: 40px;
             text-align: center;
         }
+        .outer{
+            width: 150px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+        .inner{
+            width:50px;
+            height:50px;
+            background-color: #d5d5d5;
+        }
     </style>
 
 </head>
@@ -19,7 +29,11 @@
     <div class="app">rxjs 演示页面</div>
     <user-card title="案例1">
         <span slot="title">插槽传值</slot>
-        <button class="count" slot="custom-element">count</button>   
+        <button class="count" slot="custom-element">count</button> 
+        <div class="outer" slot="custom-element">
+            <div class="inner">inner</div>
+        </div> 
+        <button class="defer-button">defer excute</button> 
     </user-card>
 
     <user-card title="案例2">
@@ -65,9 +79,9 @@
             </code>
         </div>
     </template>
-      
+     
+    <script src="./util/util.js"></script>
     <script src="./main.js" type="module"></script>
-
-    <script src="./app.js"></script>
+    <script src="./app.js" type="module"></script>
 </body>
 </html>
