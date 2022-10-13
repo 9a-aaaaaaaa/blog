@@ -161,7 +161,7 @@ export default () => {
  * **附带还有另外一个作用，就是保存一些值，这个和设计有关系，式一个取巧的方法**
  
  - 点击按钮`focus`。
-````js
+```js
 function useFousInput() {
     const refInput = useRef(null); // 返回一个可变的 ref 对象, 返回的 ref 对象在组件的整个生命周期内保持不变
     // 一开始式一个null，也就是在执行的过程中才能到这个值
