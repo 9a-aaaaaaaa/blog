@@ -1,10 +1,8 @@
----
-theme: juejin
----
+# hooks 全方位解读
 
 ![Group4@2x.8551255.jpg](1.jpg)
 > 程序最关键的就是学习思想。记录hooks 相关，方便后面排忧。
-# 1：hooks和类组件或者function component的区别
+## 1：hooks和类组件或者function component的区别
 
   `react`认为`ui`是数据的视图映射，V = f(props,state)；f 函数对于输入的数据进行加工和处理。相比较传统的class组件来说，类组件：
     
@@ -19,7 +17,37 @@ theme: juejin
 
 **下面介绍api的时候会体现这一核心思想。**
 
-# 2. hooks使用
+## 2. hooks使用
+
+
+## 2.0 快速理解
+
+数学方程  y = 2x + 1; x 是自变量，y是因变量，采用这个概念，理解hooks非常的方便。
+
+### 自变量
+ * useState
+ * useReducer： 进阶版的useState,多个state合并为一个
+ * useContext: 组件自变量的层级变的非常深的时候，直接消费跨层级传递变量
+
+
+### 桥梁 缓存
+ * useRef： 标记当前组件的缓存数据的作用,管理react以外的对象
+  
+  ### 因变量
+ * useCallback和useMemo ： 这俩定义无副作用的因变量
+ *
+  ### 副作用 
+  固定输入- 固定输出  
+  函数式编程概念：副租用。 右边存在变量就会存在副作用 
+ * useEffect： 副作用 dom console http
+ * useEffect 在它重新运行useEffect部分之前会触发清理逻辑
+ * useEffect 在移动到下一个组件（深度优先）之前运行清理和新效果并执行相同的操作。
+ * useLayoutEffect 运行每个组件的清理（深度优先），然后运行所有组件的新效果（深度优先）。
+
+
+ * react hooks 重新定义ui界面是什么,
+ * V = F(props,state)
+ * ui = V hook1 hook2
 
 ## 2.1 状态： setState
 
@@ -204,7 +232,7 @@ function useCompute() {
 ```
 这是因为它创建的是一个普通 Javascript 对象。而 useRef() 和自建一个 {current: ...} 对象的唯一区别是，useRef 会在每次渲染时返回同一个 ref 对象。变更 .current 属性不会引发组件重新渲染。
 
-# 3 缓存
+## 3 缓存
 ## 3.1 momo
 在函数组件中，React提供了一个和类组件中和PureComponent相同功能的API React.memo，会在自身re-render时，对每一个 props 项进行浅对比，如果引用没有变化，就不会触发重渲染
 ```js
@@ -278,7 +306,7 @@ const memoizedCallback = useCallback(
   [a, b],
 );
 ```
-# 4 自定义hooks
+## 4 自定义hooks
 > 自定义 Hook 是一个函数，其名称以 “use” 开头，函数内部可以调用其他的 Hook。
 
 这个自定义组件 其实返回的就是一个状态 封装行为。渲染函数里面其实就是一个值
@@ -327,8 +355,8 @@ function useData() {
 ```
 
 
-# 5 hooks 常用封装和库
-## 5.1 解耦封装一些常见的功能开发
+## 5 hooks 常用封装和库
+### 5.1 解耦封装一些常见的功能开发
 #### 自适应宽高的hooks
 
 ```js
@@ -352,9 +380,20 @@ function useWinSize() {
 }
 ```
 
+## 6： 面试常见问题
+
+[useEffect五个经典问题&实践总结](https://juejin.cn/post/7077757011013664776)
+
+
+
+
+
+
+
 [react-use](https://github.com/streamich/react-use)
 [文档地址](https://streamich.github.io/react-use/?path=/story/state-usemap--docs)
 [中文文档](https://github.com/zenghongtu/react-use-chinese/blob/master/README.md)
+
 
 ![image.png](4.png)
 

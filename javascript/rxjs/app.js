@@ -3,7 +3,9 @@ const {
     fromEvent,
     take,
     map,
-    interval
+    interval,
+    Subject,
+    AsyncSubject
 } = rxjs;
 
 // 案例1： 只可以点击1次的按钮
@@ -13,6 +15,21 @@ const countBtn$ = fromEvent(countBtn,"click");
 countBtn$.pipe(take(1)).subscribe(e=>{
     countBtn.setAttribute('disabled','');
 });
+
+
+const subject = new AsyncSubject()
+subject.subscribe(x=>console.log('Observer A: ' + x))
+subject.next(1)
+subject.next(2)
+subject.next(3)
+subject.complete()
+// Observer A: 3
+setTimeout(() => {
+  subject.subscribe(x=> console.log('Observer B: ' + x))
+  // Observer B: 3
+}, 500)
+  
+  
 
 
 // 案例5：创建Oservable
