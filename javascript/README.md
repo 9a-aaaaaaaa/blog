@@ -3,6 +3,7 @@
 
 - [[数据结构] 二叉树](./%5B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%5D%20%E4%BA%8C%E5%8F%89%E6%A0%91/index.md)
 - [[数据结构] 链表](./%5B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%5D%20%E9%93%BE%E8%A1%A8/index.md)
+- [[闭包]垃圾回收](./%5B%E9%97%AD%E5%8C%85%5D%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/index.md)
 - [[面试] 史上最全手写promise](./%5B%E9%9D%A2%E8%AF%95%5D%20%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%89%8B%E5%86%99promise/index.md)
 - [blob & arraybuffer & fetch 混合总结](./blob%20%26%20arraybuffer%20%26%20fetch%20%E6%B7%B7%E5%90%88%E6%80%BB%E7%BB%93/index.md)
 - [js 经典排序算法](./js%20%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/index.md)
