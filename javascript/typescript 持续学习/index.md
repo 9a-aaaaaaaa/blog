@@ -1,9 +1,30 @@
+<!-- vscode-markdown-toc -->
+* 1. [安装](#安装)
+* 2. [核心功能](#核心功能)
+  * 2.1. [ 数据类型](#-数据类型)
+  * 2.2. [函数](#函数)
+  * 2.3. [类](#类)
+  * 2.4. [接口](#接口)
+  * 2.5. [泛型](#泛型)
+  * 2.6. [案例：实现一个mysql和mondb等业务层的封装](#案例：实现一个mysql和mondb等业务层的封装)
+  * 2.7. [命名空间](#命名空间)
+  * 2.8. [装饰器](#装饰器)
+    * 2.8.1. [装饰器工厂](#装饰器工厂)
+    * 2.8.2. [方法装饰器](#方法装饰器)
+    * 2.8.3. [属性和参数装饰器](#属性和参数装饰器)
+    * 2.8.4. [元数据](#元数据)
+  * 2.9. [symbol](#symbol)
 
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
 ![image.png](1.png)
 
 记录和学习下`ts`的基本使用，单纯看文档比较枯燥，**主张复杂的东西简单学，简单的东西深入学。**
 
-# 安装
+##  1. <a name='安装'></a>安装
 
 ```js
 npm install -g typescript
@@ -26,8 +47,8 @@ tsc -w
 
 `ts` 的核心功能就是四个字：**类型约束**。
 
-# 核心功能
-##  数据类型
+##  2. <a name='核心功能'></a>核心功能
+###  2.1. <a name='-数据类型'></a> 数据类型
 
 原始数据类型包括：**布尔值、数值、字符串、null、undefined** 以及 `ES6` 中的新类型 `Symbol` 和 `ES10` 中的新类型 `BigInt`。
 
@@ -80,7 +101,7 @@ let getStringLength2: number = (<string>getName).length;
 
 ```
 
-## 函数
+###  2.2. <a name='函数'></a>函数
 
 ```ts
 // 函数声明（Function Declaration）
@@ -135,7 +156,7 @@ function getLen<T>(str:T[]):number{
 console.log(getLen("aaaa"));
 console.log(getLen([1,2,3]));
 ```
-## 类
+###  2.3. <a name='类'></a>类
 
 修饰符：
 - `public` 修饰的属性或方法是公有的，可以在任何地方被访问到，属性和方法默认。
@@ -258,7 +279,7 @@ const g1 = new GenericCreator<FirstClass>();
 const f1:FirstClass = g1.create(FirstClass);
 ```
 
-## 接口
+###  2.4. <a name='接口'></a>接口
 
 **接口**：行为和动作的规范，对批量的方法进行约束。
 
@@ -394,7 +415,7 @@ class Dog implements Animal,Light {
 ```
 
 
-## 泛型
+###  2.5. <a name='泛型'></a>泛型
 
 **泛型（Generics）** 是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
 
@@ -500,7 +521,7 @@ var db = new MysqlDb<Arcticle>();
 
 db.add(arc);
 ```
-### 案例：实现一个mysql和mondb等业务层的封装
+###  2.6. <a name='案例：实现一个mysql和mondb等业务层的封装'></a>案例：实现一个mysql和mondb等业务层的封装
 
 ```ts
 /**
@@ -553,7 +574,7 @@ var db2 = new Mysql<Users>();
 db2.add(p1);
 
 ```
-## 命名空间
+###  2.7. <a name='命名空间'></a>命名空间
 
 **命名空间一个最明确的目的就是解决重名问题。**
 
@@ -600,7 +621,7 @@ import { A } from "./com";
 var cc = new A.Cat("bb");
 ```
 
-## 装饰器
+###  2.8. <a name='装饰器'></a>装饰器
 
 随着 `TypeScript`和`ES6`里引入了类，在一些场景下我们需要额外的特性来支持标注或修改类及其成员。 装饰器`（Decorators）`为我们在类的声明及成员上通过元编程语法添加标注提供了一种方式。
 
@@ -608,83 +629,81 @@ var cc = new A.Cat("bb");
 
 **装饰器是一种特殊类型的声明，它能够被附加到类声明，方法， 访问符，属性或参数上。**，分为 **普通装饰器**和**装饰器工厂（可传参）**。
 
-```ts 
-// ts 中装饰器就是一个方法，可以注入类 方法 属性参数
+注意理解 **装饰器和继承的区别**。具有叠加功能
 
-// 普通装饰 类装饰器 param:当前的类 Animal
-function logClass(param: any) {
-  param.prototype.log = function () {
-    console.log("log====");
-  };
+语法糖本省：类/方法装饰是装饰器方法把类/方法当做参数传递进去。
+
+项目中一般装饰器是在单独的一个文件夹中定义
+```ts
+const MoveDecorator:ClassDecorator = (target:Function) =>{
+    // 类装饰器 target 就是class 自身
+    target.prototype.getPosition = (): {x: number,y: number} =>{
+        return {
+            x:100,
+            y:200
+        }
+    }
 }
-@logClass
-class Animal{
+// @MoveDecorator
+class Tank{
+    public getPosition(){};
 }
-
-
-// 装饰器工厂
-function appConfig(param: string) {
-  return function (target: any) {
-    // console.log(target); // HttpClient
-    // console.log(param);  // 手动传的参: http://www.baidu.com/
-  };
-}
-
-@appConfig("http://www.baidu.com/")
-class App {
-}
-
-
-// 属性装饰器，装饰属性使用。 有两个参数
-function changeUrl(parm: string) {
-  // target 被装饰的类  atrr 被装饰的属性
-  return function (target: any, attr: any) {
-    console.log(target, attr);
-    target[attr] = parm;
-  };
-}
-
-class App2{
-   @changeUrl("http://git.100tal.com/")
-   public url: any | undefined;
-}
-
-
-// 方法装饰器: 装饰方法
-function get(param: any) {
- // fname 函数名称 getData
- // target:对象 HttpClient
- // desc: configurable: true,enumerable: true,value: ƒ (),writable: true
-
-return function (target: any, fname: string, desc: any) {    
-    // 重写了被装饰的函数，被装饰的函数就不是再执行了
-    var oMthod = desc.value; // === getData
-    desc.value = function (...args: any) {
-      // args 捕获外面被装饰函数的参数 [100, 200, 300]
-      args = args.map((i: any) => String(i));
-      console.log("xxx", args);
-
-      // 不要重写 而是扩展了之前的方法，这样子两个都会执行
-      oMthod.apply(this, args);
-    };
-  };
-}
-
-class HttpClient {
-  public url: any | undefined;
-  constructor() {}
-
-  @get(100)
-  getData() {
-    console.log("getData===", this.url);
-  }
-}
-
-var http: any = new HttpClient();
-http.getData(100, 200, 300);
+// 两类写法是等效的，只不过语法糖是自动的进行了注入当前的类
+MoveDecorator(Tank)
 ```
 
-## symbol 
+####  2.8.1. <a name='装饰器工厂'></a>装饰器工厂
+
+可以通过参数来区分不同的装饰器，进行业务的混合写入
+```ts
+const InfoDecoratorFactory = (type: string):ClassDecorator =>{
+    return (target:Function) =>{
+        target.prototype.info = ():void =>{
+            console.log("info data output!",type);
+        }
+    }
+}
+
+@InfoDecoratorFactory('animal')
+class Animal{
+    public info (){}
+}
+```
+####  2.8.2. <a name='方法装饰器'></a>方法装饰器
+
+定义：
+```ts
+function aDecorator(target: Object, propertyKey: string, descriptor: PropertyDescriptor){}
+```
+- target: Either the constructor function of the class for a static method, or the prototype of the class for an instance method.[普通] 类的实例 | [静态] 是类定义 
+- propertyKey: The name of the method.
+- descriptor: The Property Descriptor for the method.
+
+具体实现：[演示案例实现](./src/decorator/classdec.ts)
+
+
+####  2.8.3. <a name='属性和参数装饰器'></a>属性和参数装饰器
+[使用参数装饰器完成表单验证](./src/decorator/attrdec.ts)
+
+
+
+####  2.8.4. <a name='元数据'></a>元数据
+为数据设置属性，元数据是单独为某个数据在设置附加属性，一般使用在类装饰器参数装饰上
+Decorators add the ability to augment a class and its members as the class is defined, through a declarative syntax.
+需要单独安装 `reflect-metadata` 
+
+```ts
+const data = {
+  name: "anikin"
+}
+Reflect.defineMetadata('set-data',{url:'baidu.com'}, data,'name')
+console.log(Reflect.getMetadata('set-data', data, 'name'))
+```
+
+[使用参数装饰器完成表单验证](./src/decorator/prac.ts)
+
+
+###  2.9. <a name='symbol'></a>symbol 
 
 ```ts
 let names = Symbol("name");
