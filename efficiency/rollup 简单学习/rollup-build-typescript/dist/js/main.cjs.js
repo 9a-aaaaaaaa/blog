@@ -1,0 +1,2 @@
+"use strict";var e=Array.prototype.join;var t={name:"yach",getVersion:function(){return this.name}};const r={name:"rollup-build-typescript",version:"1.0.1",val:(n=[1,2,3,4,5],o="@",null==n?"":e.call(n,o)),data:[1],getVersion:()=>{t.getVersion()},request:async()=>{var e;return await(e=1,fetch(`https://jsonplaceholder.typicode.com/todos/${e}`).then((e=>e.json())).then((e=>{})))}};var n,o;module.exports=r;
+//# sourceMappingURL=main.cjs.js.map

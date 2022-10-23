@@ -11,13 +11,6 @@
 - [redis](./db/redis/index.md)
 - [锁🔐](./db/%E9%94%81%F0%9F%94%90/index.md)
 
-## git 
-
-- [[git] 多个账户维护和提交](./git/%5Bgit%5D%20%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%8F%90%E4%BA%A4/index.md)
-- [[git] 子模块 submoudle 规范](./git/%5Bgit%5D%20%E5%AD%90%E6%A8%A1%E5%9D%97%20submoudle%20%E8%A7%84%E8%8C%83/index.md)
-- [github actions](./git/github%20actions/index.md)
-- [git基础](./git/git%E5%9F%BA%E7%A1%80/index.md)
-
 ## docker 
 
 - [[5] pm2 前端部署调试最后一公里](./docker/%5B5%5D%20pm2%20%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2%E8%B0%83%E8%AF%95%E6%9C%80%E5%90%8E%E4%B8%80%E5%85%AC%E9%87%8C/index.md)
@@ -29,6 +22,18 @@
 - [unix 环境变量设置](./docker/unix%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/index.md)
 - [持续集成--jenkins 入门到经通](./docker/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90--jenkins%20%E5%85%A5%E9%97%A8%E5%88%B0%E7%BB%8F%E9%80%9A/index.md)
 
+## efficiency 
+
+- [rollup 简单学习](./efficiency/rollup%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/index.md)
+- [webpack5 整理使用](./efficiency/webpack5%20%E6%95%B4%E7%90%86%E4%BD%BF%E7%94%A8/index.md)
+
+## git 
+
+- [[git] 多个账户维护和提交](./git/%5Bgit%5D%20%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%8F%90%E4%BA%A4/index.md)
+- [[git] 子模块 submoudle 规范](./git/%5Bgit%5D%20%E5%AD%90%E6%A8%A1%E5%9D%97%20submoudle%20%E8%A7%84%E8%8C%83/index.md)
+- [github actions](./git/github%20actions/index.md)
+- [git基础](./git/git%E5%9F%BA%E7%A1%80/index.md)
+
 ## javascript 
 
 - [[数据结构] 二叉树](./javascript/%5B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%5D%20%E4%BA%8C%E5%8F%89%E6%A0%91/index.md)
@@ -38,10 +43,8 @@
 - [blob & arraybuffer & fetch 混合总结](./javascript/blob%20%26%20arraybuffer%20%26%20fetch%20%E6%B7%B7%E5%90%88%E6%80%BB%E7%BB%93/index.md)
 - [js 经典排序算法](./javascript/js%20%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/index.md)
 - [react hooks](./javascript/react%20hooks/index.md)
-- [rollup 简单学习](./javascript/rollup%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/index.md)
 - [rxjs](./javascript/rxjs/index.md)
 - [typescript 持续学习](./javascript/typescript%20%E6%8C%81%E7%BB%AD%E5%AD%A6%E4%B9%A0/index.md)
-- [webpack5 整理使用](./javascript/webpack5%20%E6%95%B4%E7%90%86%E4%BD%BF%E7%94%A8/index.md)
 - [前端项目代码流程规范化常见工具](./javascript/%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83%E5%8C%96%E5%B8%B8%E8%A7%81%E5%B7%A5%E5%85%B7/index.md)
 - [深入了解前端存贮](./javascript/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E5%89%8D%E7%AB%AF%E5%AD%98%E8%B4%AE/index.md)
 - [视频系列1-学习码率](./javascript/%E8%A7%86%E9%A2%91%E7%B3%BB%E5%88%971-%E5%AD%A6%E4%B9%A0%E7%A0%81%E7%8E%87/index.md)
