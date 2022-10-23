@@ -24,8 +24,8 @@
 
 ## efficiency 
 
-- [rollup 简单学习](./efficiency/rollup%20%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/index.md)
-- [webpack5 整理使用](./efficiency/webpack5%20%E6%95%B4%E7%90%86%E4%BD%BF%E7%94%A8/index.md)
+- [rollup](./efficiency/rollup/index.md)
+- [webpack5](./efficiency/webpack5/index.md)
 
 ## git 
 

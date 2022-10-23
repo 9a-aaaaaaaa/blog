@@ -1,4 +1,21 @@
-学习资料
+<!-- vscode-markdown-toc -->
+  * 1. [CJS, AMD, UMD, ESM, System 和 IIFE 分别代表什么](#cjs,-amd,-umd,-esm,-system-和-iife-分别代表什么)
+  * 2. [定位](#定位)
+  * 3. [简单命令](#简单命令)
+  * 4. [插件](#插件)
+    * 4.1. [导入json的](#导入json的)
+    * 4.2. [rollup-plugin-node-resolve](#rollup-plugin-node-resolve)
+  * 5. [加载cjs模块](#加载cjs模块)
+    * 5.1. [代码拆分 Dynamic imports 支持](#代码拆分-dynamic-imports-支持)
+    * 5.2. [多入口打包](#多入口打包)
+  * 6. [优缺点](#优缺点)
+  * 7. [参考](#参考)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->学习资料
 
 1. [官网](https://rollupjs.org/guide/en/#config-intellisense)
 
@@ -13,7 +30,7 @@
 
 > Rollup 是一个JavaScript`模块`打包器，可以将小块代码编译成大块复杂的代码，例如 library 或应用程序
 
-### CJS, AMD, UMD, ESM, System 和 IIFE 分别代表什么
+###  1. <a name='cjs,-amd,-umd,-esm,-system-和-iife-分别代表什么'></a>CJS, AMD, UMD, ESM, System 和 IIFE 分别代表什么
 
 - `cjs` (CommonJS) — 适用于 Node 和其他打包工具（别名：commonjs）。
 - amd (Asynchronous Module Definition，异步模块化定义) — 与 RequireJS 等模块加载工具一起使用。
@@ -23,7 +40,7 @@
 - system — SystemJS 加载器的原生格式 （别名：systemjs）。
 - iife — `<script>` 标签引入的自执行函数。如果你想为你的应用创建一个包，你需要用到的可能就是这种。
 
-### 定位
+###  2. <a name='定位'></a>定位
 es module 打包器，细碎文件打包。更加小巧，主要定位esm打包器，初衷提供一个高效性能高的esm打包器，主要在类库中使用过比较多。
 webpack HMR等都无法实现。
 
@@ -31,7 +48,7 @@ webpack HMR等都无法实现。
 - 插件是唯一的扩展方式
   
 
-### 简单命令
+###  3. <a name='简单命令'></a>简单命令
 
 ```node
 // yarn 会默认去寻找可执行脚本
@@ -44,12 +61,12 @@ yarn rollup -c
 
 `rollup.config.js` 这个文件`rollup`会单独进行处理，支持es modules等写法，运行的`node`环境。
 
-### 插件
+###  4. <a name='插件'></a>插件
 
 自身知识esmodule功能的合并打包，如果项目中使用到了更高级的功能资源加载，导入cjs模块，ts等，只能使用插件的方式进行扩展。
 相比webpack更加简单一些。
 
-#### 导入json的
+####  4.1. <a name='导入json的'></a>导入json的
 ```js
 import json from "rollup-plugin-json";
 export default {
@@ -79,7 +96,7 @@ import { name,version  } from "../package.json";
 console.log(name, version);
 ```
 
-#### rollup-plugin-node-resolve
+####  4.2. <a name='rollup-plugin-node-resolve'></a>rollup-plugin-node-resolve
 默认只能按照文件路径加载，node_modules中第三方的包无法直接按照名称进行加载，且`rollup` 只能处理`es module`。
 ```js
 // rollup-config.js
@@ -95,7 +112,7 @@ console.log(join([1,2,3,4],'@'))
 ```
 
 
-### 加载cjs模块
+###  5. <a name='加载cjs模块'></a>加载cjs模块
 
 `rollup` 设计值处理 `es module` 打包，默认不支持`commonjs` , 但是大量就模块使用的`cjs`实现，因此需要使用插件 `rollup-plugin-commjs` 文件。
 引入结果就会以对象的形式将cjs文件导入到使用的文件中。
@@ -120,7 +137,7 @@ module.exports = {
 }
 ```
 
-#### 代码拆分 Dynamic imports 支持
+####  5.1. <a name='代码拆分-dynamic-imports-支持'></a>代码拆分 Dynamic imports 支持
 按需导入，内部会自动处理拆分和分包。需要支持配置 format=AMD 浏览器环境，iife 自执行无法拆包，且需要执行dir, 而不是特定的文件，一般会有下面两个错误。
 
 [!] RollupError: Invalid value "iife" for option "output.format" - UMD and IIFE output formats are not supported for code-splitting builds.
@@ -144,7 +161,7 @@ import("./logger").then(({ log })=>{
 ```
 打包完会产生两个文件，一个 `app.js` 和 ` index.xxx.js`。
 
-#### 多入口打包
+####  5.2. <a name='多入口打包'></a>多入口打包
 
 重复部分会自动提取到公共文件中。 由于是多入口，因此内部会使用代码拆分
 ```js
@@ -174,7 +191,7 @@ fetchApi(2).then( data=>{
 最后打包完`app.js` 和 `app2.js`还有一个是混合的文件用公共的部分。
 
 
-### 优缺点
+###  6. <a name='优缺点'></a>优缺点
 优点：打包简单，代码方便阅读
 
 缺点：
@@ -187,5 +204,5 @@ fetchApi(2).then( data=>{
 应用程序应该选择`webpack`。
 
 
-### 参考
+###  7. <a name='参考'></a>参考
 - https://segmentfault.com/a/1190000040720081
