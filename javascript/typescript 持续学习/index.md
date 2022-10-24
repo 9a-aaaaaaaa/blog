@@ -50,7 +50,7 @@ tsc -w
 ##  2. <a name='核心功能'></a>核心功能
 ###  2.1. <a name='-数据类型'></a> 数据类型
 
-原始数据类型包括：**布尔值、数值、字符串、null、undefined** 以及 `ES6` 中的新类型 `Symbol` 和 `ES10` 中的新类型 `BigInt`。
+原始数据类型包括：**布尔值、数值、字符串、null、undefined any void never **  以及 `ES6` 中的新类型 `Symbol` 和 `ES10` 中的新类型 `BigInt`。
 
 ```ts
 // 布尔
@@ -99,6 +99,10 @@ let getName: string = "anikin";
 let getStringLength: number = (getName as string).length; // 比较常见的写法
 let getStringLength2: number = (<string>getName).length;
 
+// never
+function error(message: string): never {
+    throw new Error(message);
+}
 ```
 
 ###  2.2. <a name='函数'></a>函数
