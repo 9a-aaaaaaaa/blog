@@ -66,6 +66,26 @@
 - [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
 - [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
 
+## node 
+
+- [JSON_Web_Token](./node/JSON_Web_Token/index.md)
+- [[2] node模块事件 event  -_ EventEmitter](./node/%5B2%5D%20node%E6%A8%A1%E5%9D%97%E4%BA%8B%E4%BB%B6%20event%20%20-_%20EventEmitter/index.md)
+- [[3] nodejs 进程和线程](./node/%5B3%5D%20nodejs%20%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/index.md)
+- [[3]node 之process 进程信息](./node/%5B3%5Dnode%20%E4%B9%8Bprocess%20%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF/index.md)
+- [[4] cluster集群 学习](./node/%5B4%5D%20cluster%E9%9B%86%E7%BE%A4%20%E5%AD%A6%E4%B9%A0/index.md)
+- [buffer 深入在深入](./node/buffer%20%E6%B7%B1%E5%85%A5%E5%9C%A8%E6%B7%B1%E5%85%A5/index.md)
+- [cryptography](./node/cryptography/index.md)
+- [express](./node/express/index.md)
+- [https](./node/https/index.md)
+- [node 中的this 是什么？](./node/node%20%E4%B8%AD%E7%9A%84this%20%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/index.md)
+- [node 模块 require & modules & exports](./node/node%20%E6%A8%A1%E5%9D%97%20require%20%26%20modules%20%26%20exports/index.md)
+- [npm & pnpm & 琐碎知识点](./node/npm%20%26%20pnpm%20%26%20%E7%90%90%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/index.md)
+- [pm2](./node/pm2/index.md)
+- [rustful接口设计规范](./node/rustful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/index.md)
+- [scream](./node/scream/index.md)
+- [v8 GC简单了解](./node/v8%20GC%E7%AE%80%E5%8D%95%E4%BA%86%E8%A7%A3/index.md)
+- [webSocketRoom](./node/webSocketRoom/index.md)
+
 ## node_modules 
 
 - [@types](./node_modules/%40types/index.md)
@@ -88,23 +108,3 @@
 - [rust[8]-闭包和迭代器](./rust/rust%5B8%5D-%E9%97%AD%E5%8C%85%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8/index.md)
 - [rust[9]-Cargo 和 Crates_io项目发布](./rust/rust%5B9%5D-Cargo%20%E5%92%8C%20Crates_io%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83/index.md)
 - [记录下 mac环境下wasm 配置](./rust/%E8%AE%B0%E5%BD%95%E4%B8%8B%20mac%E7%8E%AF%E5%A2%83%E4%B8%8Bwasm%20%E9%85%8D%E7%BD%AE/index.md)
-
-## node 
-
-- [JSON_Web_Token](./node/JSON_Web_Token/index.md)
-- [[2] node模块事件 event  -_ EventEmitter](./node/%5B2%5D%20node%E6%A8%A1%E5%9D%97%E4%BA%8B%E4%BB%B6%20event%20%20-_%20EventEmitter/index.md)
-- [[3] nodejs 进程和线程](./node/%5B3%5D%20nodejs%20%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/index.md)
-- [[3]node 之process 进程信息](./node/%5B3%5Dnode%20%E4%B9%8Bprocess%20%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF/index.md)
-- [[4] cluster集群 学习](./node/%5B4%5D%20cluster%E9%9B%86%E7%BE%A4%20%E5%AD%A6%E4%B9%A0/index.md)
-- [buffer 深入在深入](./node/buffer%20%E6%B7%B1%E5%85%A5%E5%9C%A8%E6%B7%B1%E5%85%A5/index.md)
-- [cryptography](./node/cryptography/index.md)
-- [express](./node/express/index.md)
-- [https](./node/https/index.md)
-- [node 中的this 是什么？](./node/node%20%E4%B8%AD%E7%9A%84this%20%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/index.md)
-- [node 模块 require & modules & exports](./node/node%20%E6%A8%A1%E5%9D%97%20require%20%26%20modules%20%26%20exports/index.md)
-- [npm & pnpm & 琐碎知识点](./node/npm%20%26%20pnpm%20%26%20%E7%90%90%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/index.md)
-- [pm2](./node/pm2/index.md)
-- [rustful接口设计规范](./node/rustful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/index.md)
-- [scream](./node/scream/index.md)
-- [v8 GC简单了解](./node/v8%20GC%E7%AE%80%E5%8D%95%E4%BA%86%E8%A7%A3/index.md)
-- [webSocketRoom](./node/webSocketRoom/index.md)

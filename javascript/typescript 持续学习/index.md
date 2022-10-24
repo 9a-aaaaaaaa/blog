@@ -743,6 +743,16 @@ const TYPE_IMAHGE = Symbol();
 
 ```
 
+### 声明文件
+- ts 等npm包，使用参数declaration来自动生成描述文件
+- js等不兼容类型或者引用添加描述声明文件 [参考这个库实现](./lib/index.js)
+  
+  ```ts
+    npx link ../lib // 就可以调用
+  ```
+> 发现一个很有意思的现象，npx link 软连接只要再次安装文件，也就是npm install xx 这个文件夹node_modules发生变化就会失效，需要单独的再次安装。
+
+[其他内容可以参考](https://juejin.cn/post/6844904034621456398#heading-9)
 
 
 
