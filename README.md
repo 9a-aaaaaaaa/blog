@@ -1,16 +1,4 @@
 
-## db 
-
-- [monodb基础](./db/monodb%E5%9F%BA%E7%A1%80/index.md)
-- [mysql 基础](./db/mysql%20%E5%9F%BA%E7%A1%80/index.md)
-- [mysql事务](./db/mysql%E4%BA%8B%E5%8A%A1/index.md)
-- [mysql多表查询⭐️](./db/mysql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E2%AD%90%EF%B8%8F/index.md)
-- [mysql存储引擎](./db/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/index.md)
-- [mysql管理](./db/mysql%E7%AE%A1%E7%90%86/index.md)
-- [mysql索引与性能](./db/mysql%E7%B4%A2%E5%BC%95%E4%B8%8E%E6%80%A7%E8%83%BD/index.md)
-- [redis](./db/redis/index.md)
-- [锁🔐](./db/%E9%94%81%F0%9F%94%90/index.md)
-
 ## docker 
 
 - [[5] pm2 前端部署调试最后一公里](./docker/%5B5%5D%20pm2%20%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2%E8%B0%83%E8%AF%95%E6%9C%80%E5%90%8E%E4%B8%80%E5%85%AC%E9%87%8C/index.md)
@@ -21,18 +9,6 @@
 - [k8s快如入门](./docker/k8s%E5%BF%AB%E5%A6%82%E5%85%A5%E9%97%A8/index.md)
 - [unix 环境变量设置](./docker/unix%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/index.md)
 - [持续集成--jenkins 入门到经通](./docker/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90--jenkins%20%E5%85%A5%E9%97%A8%E5%88%B0%E7%BB%8F%E9%80%9A/index.md)
-
-## efficiency 
-
-- [rollup](./efficiency/rollup/index.md)
-- [webpack5](./efficiency/webpack5/index.md)
-
-## git 
-
-- [[git] 多个账户维护和提交](./git/%5Bgit%5D%20%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%8F%90%E4%BA%A4/index.md)
-- [[git] 子模块 submoudle 规范](./git/%5Bgit%5D%20%E5%AD%90%E6%A8%A1%E5%9D%97%20submoudle%20%E8%A7%84%E8%8C%83/index.md)
-- [github actions](./git/github%20actions/index.md)
-- [git基础](./git/git%E5%9F%BA%E7%A1%80/index.md)
 
 ## javascript 
 
@@ -61,6 +37,30 @@
 - [【shell】父子shell和计算](./linux/%E3%80%90shell%E3%80%91%E7%88%B6%E5%AD%90shell%E5%92%8C%E8%AE%A1%E7%AE%97/index.md)
 - [【shell】逻辑判断](./linux/%E3%80%90shell%E3%80%91%E9%80%BB%E8%BE%91%E5%88%A4%E6%96%AD/index.md)
 
+## db 
+
+- [monodb基础](./db/monodb%E5%9F%BA%E7%A1%80/index.md)
+- [mysql 基础](./db/mysql%20%E5%9F%BA%E7%A1%80/index.md)
+- [mysql事务](./db/mysql%E4%BA%8B%E5%8A%A1/index.md)
+- [mysql多表查询⭐️](./db/mysql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E2%AD%90%EF%B8%8F/index.md)
+- [mysql存储引擎](./db/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/index.md)
+- [mysql管理](./db/mysql%E7%AE%A1%E7%90%86/index.md)
+- [mysql索引与性能](./db/mysql%E7%B4%A2%E5%BC%95%E4%B8%8E%E6%80%A7%E8%83%BD/index.md)
+- [redis](./db/redis/index.md)
+- [锁🔐](./db/%E9%94%81%F0%9F%94%90/index.md)
+
+## git 
+
+- [[git] 多个账户维护和提交](./git/%5Bgit%5D%20%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%8F%90%E4%BA%A4/index.md)
+- [[git] 子模块 submoudle 规范](./git/%5Bgit%5D%20%E5%AD%90%E6%A8%A1%E5%9D%97%20submoudle%20%E8%A7%84%E8%8C%83/index.md)
+- [github actions](./git/github%20actions/index.md)
+- [git基础](./git/git%E5%9F%BA%E7%A1%80/index.md)
+
+## efficiency 
+
+- [rollup](./efficiency/rollup/index.md)
+- [webpack5](./efficiency/webpack5/index.md)
+
 ## nginx 
 
 - [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
@@ -85,10 +85,6 @@
 - [scream](./node/scream/index.md)
 - [v8 GC简单了解](./node/v8%20GC%E7%AE%80%E5%8D%95%E4%BA%86%E8%A7%A3/index.md)
 - [webSocketRoom](./node/webSocketRoom/index.md)
-
-## node_modules 
-
-- [@types](./node_modules/%40types/index.md)
 
 ## rust 
 

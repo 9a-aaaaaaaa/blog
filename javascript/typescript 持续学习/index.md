@@ -752,7 +752,7 @@ const TYPE_IMAHGE = Symbol();
   ```
 > 发现一个很有意思的现象，npx link 软连接只要再次安装文件，也就是npm install xx 这个文件夹node_modules发生变化就会失效，需要单独的再次安装。
 
-[其他内容可以参考](https://juejin.cn/post/6844904034621456398#heading-9)
+[其他内容可以参考](https://blog.csdn.net/weixin_43487782/article/details/118878900)
 
 
 
