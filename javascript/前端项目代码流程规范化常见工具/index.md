@@ -11,8 +11,8 @@
 ## 快速连接
 
 - [ESlint与Prettier配置指南](https://juejin.cn/post/7050127881371910152)
-- [husky](https://dev.to/ivadyhabimana/setup-eslint-prettier-and-husky-in-a-node-project-a-step-by-step-guide-946)
-- 
+- [Set up ESLint, Prettier and Husky in a React project | a step by step guide](https://dev.to/ivadyhabimana/setup-eslint-prettier-and-husky-in-a-node-project-a-step-by-step-guide-946)
+- [新版本husky 完全配置](https://juejin.cn/post/6982192362583752741) 文中的 `commitlint.config.cjs`在node环境下后缀`cjs`即可
 
 ## 1: husky
 **功能作用**：可以简单增加`git hooks`，非常有利于项目持续集成和代码检测。
