@@ -4,6 +4,7 @@ yarn-debug.log*
 yarn-error.log*
 /test/unit/coverage/
 **/node_modules/
+content.js
 
 # Editor directories and files
 .idea

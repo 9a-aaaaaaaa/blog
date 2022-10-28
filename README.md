@@ -11,6 +11,11 @@
 - [redis](./db/redis/index.md)
 - [锁🔐](./db/%E9%94%81%F0%9F%94%90/index.md)
 
+## efficiency 
+
+- [rollup](./efficiency/rollup/index.md)
+- [webpack5](./efficiency/webpack5/index.md)
+
 ## docker 
 
 - [[5] pm2 前端部署调试最后一公里](./docker/%5B5%5D%20pm2%20%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2%E8%B0%83%E8%AF%95%E6%9C%80%E5%90%8E%E4%B8%80%E5%85%AC%E9%87%8C/index.md)
@@ -21,11 +26,6 @@
 - [k8s快如入门](./docker/k8s%E5%BF%AB%E5%A6%82%E5%85%A5%E9%97%A8/index.md)
 - [unix 环境变量设置](./docker/unix%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/index.md)
 - [持续集成--jenkins 入门到经通](./docker/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90--jenkins%20%E5%85%A5%E9%97%A8%E5%88%B0%E7%BB%8F%E9%80%9A/index.md)
-
-## efficiency 
-
-- [rollup](./efficiency/rollup/index.md)
-- [webpack5](./efficiency/webpack5/index.md)
 
 ## git 
 
@@ -61,11 +61,6 @@
 - [【shell】父子shell和计算](./linux/%E3%80%90shell%E3%80%91%E7%88%B6%E5%AD%90shell%E5%92%8C%E8%AE%A1%E7%AE%97/index.md)
 - [【shell】逻辑判断](./linux/%E3%80%90shell%E3%80%91%E9%80%BB%E8%BE%91%E5%88%A4%E6%96%AD/index.md)
 
-## nginx 
-
-- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
-- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
-
 ## node 
 
 - [JSON_Web_Token](./node/JSON_Web_Token/index.md)
@@ -86,6 +81,19 @@
 - [v8 GC简单了解](./node/v8%20GC%E7%AE%80%E5%8D%95%E4%BA%86%E8%A7%A3/index.md)
 - [webSocketRoom](./node/webSocketRoom/index.md)
 
+## node_modules 
+
+- [@types](./node_modules/%40types/index.md)
+- [asynckit](./node_modules/asynckit/index.md)
+- [axios](./node_modules/axios/index.md)
+- [combined-stream](./node_modules/combined-stream/index.md)
+- [delayed-stream](./node_modules/delayed-stream/index.md)
+- [follow-redirects](./node_modules/follow-redirects/index.md)
+- [form-data](./node_modules/form-data/index.md)
+- [mime-db](./node_modules/mime-db/index.md)
+- [mime-types](./node_modules/mime-types/index.md)
+- [proxy-from-env](./node_modules/proxy-from-env/index.md)
+
 ## rust 
 
 - [rust[10]-常见的集合](./rust/rust%5B10%5D-%E5%B8%B8%E8%A7%81%E7%9A%84%E9%9B%86%E5%90%88/index.md)
@@ -104,3 +112,8 @@
 - [rust[8]-闭包和迭代器](./rust/rust%5B8%5D-%E9%97%AD%E5%8C%85%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8/index.md)
 - [rust[9]-Cargo 和 Crates_io项目发布](./rust/rust%5B9%5D-Cargo%20%E5%92%8C%20Crates_io%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83/index.md)
 - [记录下 mac环境下wasm 配置](./rust/%E8%AE%B0%E5%BD%95%E4%B8%8B%20mac%E7%8E%AF%E5%A2%83%E4%B8%8Bwasm%20%E9%85%8D%E7%BD%AE/index.md)
+
+## nginx 
+
+- [nginx  汇总和学习](./nginx/nginx%20%20%E6%B1%87%E6%80%BB%E5%92%8C%E5%AD%A6%E4%B9%A0/index.md)
+- [基础使用](./nginx/%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.md)
