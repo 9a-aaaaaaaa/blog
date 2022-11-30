@@ -9,6 +9,22 @@
 -   **模块**（*Modules*）和 **use**： 允许你控制作用域和路径的私有性。
 -   **路径**（*path*）：一个命名例如结构体、函数或模块等项的方式
 
+
+由于官方文档比较难懂，大概有如下关系：
+主要讲述的是以下几者之间的关系：
+
+package: cargo new 创建的就是包.
+
+crate: **是编译的基本单位**，默认`src/mian.rs` 也就是可以编译为二进制文件。也就是根。
+
+一个包至多只能包含一个库 `crate(library crate)` // 就是包含 `lib.rs` 引用文件。
+
+包中可以包含任意多个二进制 `crate`(binary crate)
+
+![image](https://user-images.githubusercontent.com/13470654/204789564-0abc81c5-c48c-46a0-9da1-8685fd028ec8.png)
+
+主要讲述了这几个之间的关系。
+
 # 包 | crate 
 
 ### crate 
